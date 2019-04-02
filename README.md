@@ -8,3 +8,7 @@ Note: This is my first real game so I am taking my time. And I started proggrami
 - Bigger worlds(Now it's only one plane 1280x1024) date: Next update hopefully
 - Moving camera(So you can move through world) date: Next update hopefully
 - Some power-ups(Like double jump and more...) date: After the next update
+
+If you find any bugs email me: never.saymeme@gmail.com 
+
+Thanks!

@@ -12,7 +12,7 @@ Py = Pysics
 # Creates screen
 width = 1680
 height = 980
-screen, screen, Player_Layer = R.Create_screen(width,height)
+screen, world, Player_Layer = R.Create_screen(width,height)
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
@@ -75,7 +75,7 @@ def main():
                 Py.Collision(screen, HitBoxes, R.E, R.El, i, P, RenderL)
         Py.Borders(P, screen)
         RenderL = PG.RenderL
-        R.Build_screen(screen, screen, Player_Layer, P, RenderL) #Function that renders the scene
+        R.Build_screen(screen, world, Player_Layer, P, RenderL) #Function that renders the scene
         PG.updates += 1
         print("Update: ", updates)
         T2 = time.clock()

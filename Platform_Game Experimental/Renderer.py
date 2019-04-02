@@ -42,11 +42,12 @@ pygame.display.set_icon(icon)
 pygame.display.set_caption('Platform game')
 def Create_screen(width, height): #creates the screen
     screen = pygame.display.set_mode((width,height))
-    screen = pygame.display.set_mode((width,height))
+    world = pygame.display.set_mode((width,height))
     Player_Layer = pygame.display.set_mode((width,height))
-    return screen, screen, Player_Layer
+    return screen, world, Player_Layer
 
-def Build_screen(screen, screen, Player_Layer, P, RenderL):#Renders the scene
+def Build_screen(screen, world, Player_Layer, P, RenderL):#Renders the scene
+    screen.fill(white)
     R.EL = RenderL[0]
     StarL = RenderL[1]
     HitBoxes = RenderL[2]

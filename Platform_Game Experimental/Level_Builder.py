@@ -25,7 +25,7 @@ L.El = []
 L.Star = {}
 L.StarL = []
 
-def Load_level_1(screen, choice): #Creates the level
+def Load_level_1(screen, choice, P): #Creates the level
     if choice == "normal":
         E1 = level(20, 948, 100, 20, black)
         El = [E1]
@@ -38,7 +38,7 @@ def Load_level_1(screen, choice): #Creates the level
             L.El.append(L.Done)
             L.El.append(E1)
             L.w = 1
-            Done.cert = Done.draw(screen)
+            Done.cert = Done.draw(screen, P)
             for i in range(0, random.randint(2,12)):
                 print("Haga: ", i)
                 L.Star[i]=star(screen)
@@ -81,8 +81,8 @@ class level(EN.enemy):
         self.width = width
         self.height = height
         self.color = color
-    def draw(self,screen):
-        self.cert = self.create(screen, self.x, self.y, self.width, self.height, self.color).normalize()
+    def draw(self,screen, P):
+        self.cert = self.create(screen, self.x + P.CameraX, self.y, self.width, self.height, self.color).normalize()
 
 class star(object):
     def __init__(self, screen):
@@ -91,5 +91,5 @@ class star(object):
         self.image = pygame.image.load("images/LoGo.png")
         self.rect = self.image.get_rect()
         self.cert = pygame.draw.rect(screen, black,[self.x, self.y, 26, 20])
-    def draw(self,screen):
-        screen.blit(self.image, (self.x,self.y))
+    def draw(self,screen, P):
+        screen.blit(self.image, (self.x + P.CameraX, self.y))

@@ -28,8 +28,9 @@ class player(pygame.sprite.Sprite):
         self.Moving = False
         self.MoveY = 0
         self.MoveX = 0
+        self.CameraX = 0
 
-    def move(self, screen, P, RenderL):
+    def move(self, screen, P):
         surface = screen
         key = pygame.key.get_pressed()
         dist = 3
@@ -48,21 +49,21 @@ class player(pygame.sprite.Sprite):
                 self.Moving = False
                 self.Jumping = False
         if key[pygame.K_d]:
-            if self.MoveX < 3 or CanSpeed == True:
-                self.MoveX += 1
+            if self.CameraX > -3 or CanSpeed == True:
+                self.CameraX -= 1
             self.Moving = False
         elif key[pygame.K_a]:
-            if self.MoveX > -3:
-                self.MoveX += -1
+            if self.CameraX < 3 or CanSpeed == True:
+                self.CameraX += 1
             self.Moving = False
         else:
-            if self.MoveX > -0.1 and self.MoveX < 0.1:
-                self.MoveX = 0
-            elif self.MoveX > 0:
-                self.MoveX -= 0.1
-            elif self.MoveX <= 0:
-                self.MoveX += 0.1
-        self.x += self.MoveX
+            if self.CameraX > -0.1 and self.MoveX < 0.1:
+                self.CameraX = 0
+            elif self.CameraX > 0:
+                self.CameraX -= 0.1
+            elif self.CameraX <= 0:
+                self.CameraX += 0.1
+        self.x += self.CameraX
         self.y += self.MoveY
 
     def HitBox(self, screen):

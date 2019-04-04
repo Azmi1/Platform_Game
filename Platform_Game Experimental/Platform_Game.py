@@ -12,7 +12,7 @@ Py = Pysics
 # Creates screen
 width = 1680
 height = 980
-screen, world, Player_Layer = R.Create_screen(width,height)
+screen = R.Create_screen(width,height)
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
@@ -45,14 +45,14 @@ Animation_Image = pygame.image.load("images/explosion.hasgraphics.png").convert_
 def main(): 
     while Running == True: # Makes a game loop
         RenderL = PG.RenderL
-        P.move(Player_Layer, P, RenderL) #Function that makes playermove
+        P.move(screen, P) #Function that makes playermove
         if P.Moving == True and P.Jumping == True:
             print("I am moving")
         elif P.Moving == False and P.Jumping == False and PG.Gravity == True:
             print("I am wrong")
             Py.Gravity(P)
         if PG.i == 1:
-            R.El, PG.i, StarL = LB.Load_level_1(screen, "custom")
+            R.El, PG.i, StarL = LB.Load_level_1(screen, "custom", P)
             print ("Level loading/creating")
         HitBoxes = P.HitBox(screen)
         if PrviZagon == 0:
@@ -75,7 +75,7 @@ def main():
                 Py.Collision(screen, HitBoxes, R.E, R.El, i, P, RenderL)
         Py.Borders(P, screen)
         RenderL = PG.RenderL
-        R.Build_screen(screen, world, Player_Layer, P, RenderL) #Function that renders the scene
+        R.Build_screen(screen, P, RenderL) #Function that renders the scene
         PG.updates += 1
         print("Update: ", updates)
         T2 = time.clock()

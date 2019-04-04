@@ -42,17 +42,15 @@ pygame.display.set_icon(icon)
 pygame.display.set_caption('Platform game')
 def Create_screen(width, height): #creates the screen
     screen = pygame.display.set_mode((width,height))
-    world = pygame.display.set_mode((width,height))
-    Player_Layer = pygame.display.set_mode((width,height))
-    return screen, world, Player_Layer
+    return screen
 
-def Build_screen(screen, world, Player_Layer, P, RenderL):#Renders the scene
-    screen.fill(white)
+def Build_screen(screen, P, RenderL):#Renders the scene
     R.EL = RenderL[0]
     StarL = RenderL[1]
     HitBoxes = RenderL[2]
+    screen.fill(white)
     pygame.display.get_caption()
-    R.E = L.Draw_level(screen, R.El, StarL)
+    R.E = L.Draw_level(screen, R.El, StarL, P)
     x = len(R.E)
     print ("Število kvadratov", x)
     h = len(StarL)
@@ -67,8 +65,7 @@ def Build_screen(screen, world, Player_Layer, P, RenderL):#Renders the scene
         pygame.display.update()
         time.sleep(2)
         pygame.quit()
-    screen.blit(Player_Layer,(-P.x,0))
-    Player_Layer.blit(image,(22, P.y))
+    screen.blit(image,(22, P.y))
     pygame.display.update()
 
 def Score_animation(screen):

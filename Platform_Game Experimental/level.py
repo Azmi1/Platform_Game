@@ -24,18 +24,18 @@ L.w = 0
 L.El = []
 
 
-def Draw_level(screen, El, StarL):
+def Draw_level(screen, El, StarL, P):
     x = len(El)
     z = len(StarL)
     print("Prisotne tocke: ",z-1)
     E = []
     for i in range(0,x):
-        El[i].draw(screen)
+        El[i].draw(screen, P)
         El[i].cert = El[i]
         E.append(El[i].rect)
         #pygame.display.update(El[i].rect)
     if StarL != []:
         for i in range(0,z-1):
-            StarL[i].draw(screen)
+            StarL[i].draw(screen, P)
             #pygame.display.update(L.StarL[i].rect)
     return E

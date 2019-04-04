@@ -4,3 +4,9 @@ Experimental #1: 4.4.2019 17:13
 	I made progress with movable camera!
 	Known bugs:
 		- Collision doesn't work (Need to se what causes it!)
+
+Experimental #2: 4.4.2019 21:39
+	Fixed a bug!
+	Known bugs:
+		- Once you collide with object's side you can't move(I know how to fix it just don't know how to implement)
+		- Once you collide with object's side caracter goes offscreen(It's same fix as above - at least it should be)

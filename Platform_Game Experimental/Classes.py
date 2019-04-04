@@ -1,7 +1,8 @@
-import pygame, time, Classes, Renderer, level
+import pygame, time, Classes, Renderer, level, Pysics
 
 R = Renderer
 L = level
+Py = Pysics
 
 black = [0, 0, 0]
 white = [255, 255, 255]
@@ -18,7 +19,8 @@ class player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         Player.add(self)
-        self.x = 20
+        self.CameraX = 0
+        self.x = self.CameraX+22
         self.y = 900
         self.image = pygame.image.load("images/player.png")
         self.rect = self.image.get_rect()
@@ -28,7 +30,6 @@ class player(pygame.sprite.Sprite):
         self.Moving = False
         self.MoveY = 0
         self.MoveX = 0
-        self.CameraX = 0
 
     def move(self, screen, P):
         surface = screen
@@ -49,21 +50,20 @@ class player(pygame.sprite.Sprite):
                 self.Moving = False
                 self.Jumping = False
         if key[pygame.K_d]:
-            if self.CameraX > -3 or CanSpeed == True:
+            if self.CameraX > -3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
                 self.CameraX -= 1
             self.Moving = False
         elif key[pygame.K_a]:
-            if self.CameraX < 3 or CanSpeed == True:
+            if self.CameraX < 3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
                 self.CameraX += 1
             self.Moving = False
         else:
-            if self.CameraX > -0.1 and self.MoveX < 0.1:
+            if self.CameraX > -0.1 and self.MoveX < 0.1 or Py.CollHappened == True:
                 self.CameraX = 0
             elif self.CameraX > 0:
                 self.CameraX -= 0.1
             elif self.CameraX <= 0:
                 self.CameraX += 0.1
-        self.x += self.CameraX
         self.y += self.MoveY
 
     def HitBox(self, screen):

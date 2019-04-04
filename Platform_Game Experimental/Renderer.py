@@ -65,7 +65,7 @@ def Build_screen(screen, P, RenderL):#Renders the scene
         pygame.display.update()
         time.sleep(2)
         pygame.quit()
-    screen.blit(image,(22, P.y))
+    screen.blit(image,(P.x, P.y))
     pygame.display.update()
 
 def Score_animation(screen):

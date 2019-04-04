@@ -3,10 +3,13 @@ import pygame, time, Classes, Pysics, Renderer, level
 C = Classes
 R = Renderer
 L = level
+Py = Pysics
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
 red = [255,0,0]
+
+CollHappened = False
 
 def Collision(screen, Hitboxes, Ecert, E,i, P, RenderL):
     E1cert=Ecert[i]
@@ -19,20 +22,24 @@ def Collision(screen, Hitboxes, Ecert, E,i, P, RenderL):
         P.x=Him.x-48
         P.Jump = True
         P.MoveX = 0
+        Py.CollHappened = True
     elif P.certtop.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) and P.certtop.colliderect(Him.cert) or P.certLeft.colliderect(Him.cert):
         P.x=Him.x+Him.width
         P.Jump = True
         P.MoveX = 0
+        Py.CollHappened = True
     elif P.certtop.colliderect(Him.cert):
         P.y=Him.y+Him.height
         P.Jump = True
         P.MoveY = 0
+        Py.CollHappened = True
     elif P.certbottom.colliderect(Him.cert):
-        P.y=Him.y-48
+        P.y=Him.y-49
         P.Jump = True
         P.MoveY = 0
     else:
         print("Collision false")
+        Py.CollHappened = False
 
 def Gravity(self):
     self.y +=3

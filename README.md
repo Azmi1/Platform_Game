@@ -5,8 +5,9 @@ Note: This is my first real game so I am taking my time. And I started proggrami
 
 ***Planned features:***
 - Better graphics(as good as I can do them!) date: Not known
-- Bigger worlds(Now it's only one plane 1280x1024) date: Next update hopefully
-- Moving camera(So you can move through world) date: Next update hopefully
+- Bigger worlds(Now it's only one plane 1280x1024) date: Next stable update hopefully
+- Moving camera(So you can move through world) date: Next stable update hopefully
+- Two player support(More the merrier!) date: After/next stable update
 - Some power-ups(Like double jump and more...) date: After the next update
 
 If you find any bugs email me: never.saymeme@gmail.com 

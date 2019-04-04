@@ -1,0 +1,6 @@
+Update log
+
+Experimental #1: 4.4.2019 17:13
+	I made progress with movable camera!
+	Known bugs:
+		- Collision doesn't work (Need to se what causes it!)

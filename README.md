@@ -1,6 +1,9 @@
 # Platform_Game
 It's the game I am working on written in python. Still work in progress!
 
+If it's saying that the pygame isn't installed type this in cmd: pip install pygame
+if that doesn't work type this in cmd: py -3.7 -m pip install pygame
+
 Note: This is my first real game so I am taking my time. And I started proggraming this year so please be understanding if it's taking time.
 
 ***Planned features:***

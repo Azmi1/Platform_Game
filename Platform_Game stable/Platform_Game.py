@@ -43,16 +43,16 @@ Animation_Image = pygame.image.load("images/explosion.hasgraphics.png").convert_
 
 #Main game loop
 def main(): 
-    while Running == True:  # Makes a game loop
+    while Running == True: # Makes a game loop
         RenderL = PG.RenderL
-        P.move(screen, P)  # Function that makes player move
+        P.move(screen, P) #Function that makes playermove
         if P.Moving == True and P.Jumping == True:
             print("I am moving")
         elif P.Moving == False and P.Jumping == False and PG.Gravity == True:
             print("I am wrong")
             Py.Gravity(P)
         if PG.i == 1:
-            R.El, PG.i, StarL = LB.Load_level_1(screen, "custom", P)
+            R.El, PG.i, StarL = LB.Load_level_1(screen, "custom")
             print ("Level loading/creating")
         HitBoxes = P.HitBox(screen)
         if PrviZagon == 0:

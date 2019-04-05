@@ -1,8 +1,7 @@
-import pygame, time, Classes, Renderer, level, Pysics
+import pygame, time, Classes, Renderer, level
 
 R = Renderer
 L = level
-Py = Pysics
 
 black = [0, 0, 0]
 white = [255, 255, 255]
@@ -19,9 +18,7 @@ class player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         Player.add(self)
-        self.CameraX = 0
-        self.x = 22
-        self.PrevX = self.x
+        self.x = 20
         self.y = 900
         self.image = pygame.image.load("images/player.png")
         self.rect = self.image.get_rect()
@@ -31,7 +28,6 @@ class player(pygame.sprite.Sprite):
         self.Moving = False
         self.MoveY = 0
         self.MoveX = 0
-        self.Orientation = "right"
 
     def move(self, screen, P):
         surface = screen
@@ -52,27 +48,21 @@ class player(pygame.sprite.Sprite):
                 self.Moving = False
                 self.Jumping = False
         if key[pygame.K_d]:
-            if self.CameraX > -3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
-                self.PrevX = self.CameraX
-                self.CameraX -= 1
-                self.Orientation = "right"
+            if self.MoveX < 3 or CanSpeed == True:
+                self.MoveX += 1
             self.Moving = False
         elif key[pygame.K_a]:
-            if self.CameraX < 3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
-                self.PrevX = self.CameraX
-                self.CameraX += 1
-                self.Orientation = "left"
+            if self.MoveX > -3:
+                self.MoveX += -1
             self.Moving = False
         else:
-            if self.CameraX > -0.1 and self.MoveX < 0.1 or Py.CollHappened == True:
-                self.PrevX = self.CameraX
-                self.CameraX = 0
-            elif self.CameraX > 0:
-                self.PrevX = self.CameraX
-                self.CameraX -= 0.1
-            elif self.CameraX <= 0:
-                self.PrevX = self.CameraX
-                self.CameraX += 0.1
+            if self.MoveX > -0.1 and self.MoveX < 0.1:
+                self.MoveX = 0
+            elif self.MoveX > 0:
+                self.MoveX -= 0.1
+            elif self.MoveX <= 0:
+                self.MoveX += 0.1
+        self.x += self.MoveX
         self.y += self.MoveY
 
     def HitBox(self, screen):

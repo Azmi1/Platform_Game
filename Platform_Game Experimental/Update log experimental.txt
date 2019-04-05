@@ -1,12 +1,33 @@
 Update log
 
-Experimental #1: 4.4.2019 17:13
-	I made progress with movable camera!
+Experimental #1.0: 4.4.2019 17:13
+	I made progress with movable camera and world!
+	
+	New features:
+		- Started loading more screens so that one is game windown other one is world!
+		- Camera moves
+
 	Known bugs:
 		- Collision doesn't work (Need to se what causes it!)
 
-Experimental #2: 4.4.2019 21:39
-	Fixed a bug!
+Experimental #1.1: 4.4.2019 21:39
+	Fixed a bug and revised how camera and world works!
+	
+	New features:
+		- Scraped new screens know only have one again!
+		- World is actualy bigger!
+		- Better performance than the previous build!
+
 	Known bugs:
-		- Once you collide with object's side you can't move(I know how to fix it just don't know how to implement)
-		- Once you collide with object's side caracter goes offscreen(It's same fix as above - at least it should be)
+		- Once you collide with the object's side you can't move(I know how to fix it just don't know how to implement)
+		- Once you collide with the object's side caracter goes offscreen(It's same fix as above - at least it should be)
+		- Collision is wierd if you don't build the block the right way(It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!(Been bothering me a while can't figure it out)
+
+Experimental #1.2: 5.4.2019 14:01
+	Fixed bugs!
+	Known bugs:
+		- Stars don't move(I think I know how to fix it)
+		- If you collide with the object's left side it catapults you to the left(Maybe be kept in game as a separate mode for fun)
+		- Collision is wierd if you don't build the block the right way(It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!(Been bothering me a while can't figure it out)

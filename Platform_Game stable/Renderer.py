@@ -50,7 +50,7 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     HitBoxes = RenderL[2]
     screen.fill(white)
     pygame.display.get_caption()
-    R.E = L.Draw_level(screen, R.El, StarL, P)
+    R.E = L.Draw_level(screen, R.El, StarL)
     x = len(R.E)
     print ("Število kvadratov", x)
     h = len(StarL)
@@ -65,11 +65,7 @@ def Build_screen(screen, P, RenderL):#Renders the scene
         pygame.display.update()
         time.sleep(2)
         pygame.quit()
-    P.HitBox(screen)
-    if P.Orientation == "right":
-        screen.blit(image, (22, P.y))
-    if P.Orientation == "left":
-        screen.blit(pygame.transform.flip(image, True, False), (22, P.y))
+    screen.blit(image,(P.x, P.y))
     pygame.display.update()
 
 def Score_animation(screen):

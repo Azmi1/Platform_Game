@@ -1,9 +1,14 @@
-import pygame, time, Classes, Pysics, Renderer, level
+import pygame, time, Classes, Pysics, Renderer, level, datetime
 
 C = Classes
 R = Renderer
 L = level
 Py = Pysics
+
+currentTime = str(datetime.datetime.now())
+currentTime = currentTime.replace(':', '_')
+
+F = open("logs/Collision log "+ currentTime + ".txt", "w+") 
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
@@ -17,24 +22,33 @@ def Collision(screen, Hitboxes, Ecert, E,i, P, RenderL):
     Him.cert = E1cert
     if P.certIn.colliderect(Him.cert):
         P.y-=3
+        F.write("Collision with inner block")
+        F.write("\n")
         P.Moving = True
+    elif P.certtop.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) and P.certtop.colliderect(Him.cert) or P.certLeft.colliderect(Him.cert):
+        P.x = Him.x+Him.width
+        P.Jump = True
+        P.CameraX = - 0.05
+        F.write("Collision with left side")
+        F.write("\n")
     elif P.certtop.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) or P.certtop.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) and P.certbottom.colliderect(Him.cert) or P.certRight.colliderect(Him.cert):
         P.CameraX=Him.x-48
         P.Jump = True
-        P.CameraX = P.CameraX - 3
         P.CameraX = 0
-    elif P.certtop.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) and P.certtop.colliderect(Him.cert) or P.certLeft.colliderect(Him.cert):
-        P.CameraX=Him.x+Him.width
-        P.Jump = True
-        P.MoveX = 0
+        F.write("Collision with right side")
+        F.write("\n")
     elif P.certtop.colliderect(Him.cert):
         P.y=Him.y+Him.height
         P.Jump = True
         P.MoveY = 0
+        F.write("Collision with top side")
+        F.write("\n")
     elif P.certbottom.colliderect(Him.cert):
         P.y=Him.y-48
         P.Jump = True
         P.MoveY = 0
+        F.write("Collision with bottom side")
+        F.write("\n")
     else:
         print("Collision false")
         Py.CollHappened = False

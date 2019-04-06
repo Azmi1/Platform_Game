@@ -23,8 +23,8 @@ magenta = [255,0,255]
 
 screen = pygame.display.set_mode((width,height))
 
-image= pygame.image.load("images/player.png").convert_alpha()
-icon= pygame.image.load("images/player.ico").convert_alpha()
+image = pygame.image.load("images/player.png").convert_alpha()
+icon = pygame.image.load("images/player.ico").convert_alpha()
 star = pygame.image.load("images/LoGo.png").convert_alpha()
 Animation_Image = pygame.image.load("images/explosion.hasgraphics.png").convert_alpha()
 #Background = pygame.image.load("images/background.jpg").convert_alpha()
@@ -67,9 +67,9 @@ def Build_screen(screen, P, RenderL):#Renders the scene
         pygame.quit()
     P.HitBox(screen)
     if P.Orientation == "right":
-        screen.blit(image, (22, P.y))
+        screen.blit(image, (P.CameraX + 22, P.y))
     if P.Orientation == "left":
-        screen.blit(pygame.transform.flip(image, True, False), (22, P.y))
+        screen.blit(pygame.transform.flip(image, True, False), (P.CameraX + 22, P.y))
     pygame.display.update()
 
 def Score_animation(screen):

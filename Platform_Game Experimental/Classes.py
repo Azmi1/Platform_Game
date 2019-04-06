@@ -53,13 +53,11 @@ class player(pygame.sprite.Sprite):
                 self.Jumping = False
         if key[pygame.K_d]:
             if self.CameraX > -3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
-                self.PrevX = self.CameraX
                 self.CameraX -= 1
                 self.Orientation = "right"
             self.Moving = False
         elif key[pygame.K_a]:
             if self.CameraX < 3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
-                self.PrevX = self.CameraX
                 self.CameraX += 1
                 self.Orientation = "left"
             self.Moving = False
@@ -68,10 +66,8 @@ class player(pygame.sprite.Sprite):
                 self.PrevX = self.CameraX
                 self.CameraX = 0
             elif self.CameraX > 0:
-                self.PrevX = self.CameraX
                 self.CameraX -= 0.1
             elif self.CameraX <= 0:
-                self.PrevX = self.CameraX
                 self.CameraX += 0.1
         self.y += self.MoveY
 

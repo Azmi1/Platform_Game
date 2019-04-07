@@ -34,8 +34,10 @@ def Draw_level(screen, El, StarL, P):
         El[i].cert = El[i]
         E.append(El[i].rect)
         #pygame.display.update(El[i].rect)
-    if StarL != []:
-        for i in range(0,z-1):
-            StarL[i].draw(screen, P)
-            #pygame.display.update(L.StarL[i].rect)
+    #if StarL != []:
+    #    for i in range(0,z-1):
+    #        StarL[i].draw(screen, P)
+    #        StarL.remove(StarL[i])
+    #        StarL.append(StarL[i])
+    #        pygame.display.update(L.StarL[i].rect)
     return E

@@ -26,15 +26,13 @@ def Collision(screen, Hitboxes, Ecert, E,i, P, RenderL):
         F.write("\n")
         P.Moving = True
     elif P.certtop.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certLeft.colliderect(Him.cert) and P.certtop.colliderect(Him.cert) or P.certLeft.colliderect(Him.cert):
-        P.x = Him.x+Him.width
         P.Jump = True
-        P.CameraX = - 0.05
+        P.CameraX = - 0.2
         F.write("Collision with left side")
         F.write("\n")
     elif P.certtop.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) or P.certtop.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) and P.certbottom.colliderect(Him.cert) or P.certRight.colliderect(Him.cert):
-        P.CameraX=Him.x-48
+        P.CameraX= + 0.2
         P.Jump = True
-        P.CameraX = 0
         F.write("Collision with right side")
         F.write("\n")
     elif P.certtop.colliderect(Him.cert):

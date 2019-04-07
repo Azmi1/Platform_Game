@@ -59,15 +59,14 @@ def main():
             PG.RenderL.append(R.El)
             PG.RenderL.append(StarL)
             PG.RenderL.append(HitBoxes)
-        h = len(StarL)
-        for i in range(0,h-1):
-            if P.certall.colliderect(StarL[i].cert):
-                StarL.remove(StarL[i])
-                P.Score +=1
-                print("Tvoj Score:", P.Score)
-                i-=1
-                h-=1
-                R.Start_Animation = True
+        #h = len(StarL)
+        #i = 0
+        #for i in range(0,h-1):
+        #    if P.certall.colliderect(StarL[i].cert):
+        #        P.Score +=1
+        #        print("Tvoj Score:", P.Score)
+        #        R.Start_Animation = True
+        #        StarL.remove(StarL[i])
         i=0
         x = len(R.E)
         for i in range(0,x):

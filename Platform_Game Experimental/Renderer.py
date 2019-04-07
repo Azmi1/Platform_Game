@@ -53,19 +53,19 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     R.E = L.Draw_level(screen, R.El, StarL, P)
     x = len(R.E)
     print ("Število kvadratov", x)
-    h = len(StarL)
-    if R.Start_Animation == True:
-        R.Start_Animation = Score_animation(screen)
+    #h = len(StarL)
+    #if R.Start_Animation == True:
+    #    R.Start_Animation = Score_animation(screen)
     Score = str(P.Score)
     PS = myfont.render(Score, False, red)
     screen.blit(PS, [840,0])
-    if h <= 1:
-        PS = myfont.render('Bravo pobrali ste vse možne točke', False, red)
-        screen.blit(PS, [650,490])
-        pygame.display.update()
-        time.sleep(2)
-        pygame.quit()
-    P.HitBox(screen)
+    #if h <= 1:
+    #    PS = myfont.render('Bravo pobrali ste vse možne točke', False, red)
+    #    screen.blit(PS, [650,490])
+    #    pygame.display.update()
+    #    time.sleep(2)
+    #    pygame.quit()
+    #P.HitBox(screen)
     if P.Orientation == "right":
         screen.blit(image, (P.CameraX + 22, P.y))
     if P.Orientation == "left":

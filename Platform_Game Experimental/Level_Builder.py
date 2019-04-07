@@ -39,10 +39,10 @@ def Load_level_1(screen, choice, P): #Creates the level
             L.El.append(E1)
             L.w = 1
             Done.cert = Done.draw(screen, P)
-            for i in range(0, random.randint(2,12)):
-                print("Haga: ", i)
-                L.Star[i]=star(screen)
-                L.StarL.append(L.Star[i])
+            #for i in range(0, random.randint(2,12)):
+            #    print("Haga: ", i)
+            #    L.Star[i]=star(screen)
+            #    L.StarL.append(L.Star[i])
         if pygame.mouse.get_pressed()[0] == True: #Left Click and drag to draw
             if L.id == 0:
                 L.x, L.y = pygame.mouse.get_pos()
@@ -83,7 +83,6 @@ class level(EN.enemy):
         self.color = color
     def draw(self,screen, P):
         self.cert = self.create(screen, self.x + P.CameraX, self.y, self.width, self.height, self.color).normalize()
-
 class star(object):
     def __init__(self, screen):
         self.x = random.randint(10,1670)
@@ -92,4 +91,6 @@ class star(object):
         self.rect = self.image.get_rect()
         self.cert = pygame.draw.rect(screen, black,[self.x, self.y, 26, 20])
     def draw(self,screen, P):
-        screen.blit(self.image, (self.x + P.CameraX, self.y))
+        self.x = self.x + P.CameraX
+        self.cert = pygame.draw.rect(screen, black,[self.x, self.y, 26, 20])
+        screen.blit(self.image, (self.x, self.y))

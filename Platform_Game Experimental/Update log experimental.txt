@@ -52,3 +52,13 @@ Experimental #1.4: 7.4.2019 17:15
 		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
 		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
 		- You must close the game twice(It's starting to get me on nerves!)
+
+Experimental #1.5: 8.4.2019 22:14
+	Reworked the camera sistem!
+	In the next update maybe will be stable!
+	Known bugs:
+		- Collision is wierd if you don't build the block the right way
+		  (It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
+		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
+		- You must close the game twice(It's starting to get me on nerves!)

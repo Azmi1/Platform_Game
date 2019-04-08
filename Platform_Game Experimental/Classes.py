@@ -31,6 +31,7 @@ class player(pygame.sprite.Sprite):
         self.Moving = False
         self.MoveY = 0
         self.MoveX = 0
+        self.CameraPosX = self.CameraX + 22
         self.Orientation = "right"
 
     def move(self, screen, P):
@@ -70,6 +71,16 @@ class player(pygame.sprite.Sprite):
             elif self.CameraX <= 0:
                 self.CameraX += 0.1
         self.y += self.MoveY
+
+    def Camera(self, El):
+        key = pygame.key.get_pressed()
+        if El[2].x >= 0:
+            self.CameraPosX = self.CameraX + 20
+        if El[2].x < 0 and self.CameraPosX <= 800 and self.CameraX < 0 and key[pygame.K_d]:
+            self.CameraPosX += 4
+        if El[2].x < 0 and self.CameraPosX <= 808 and self.CameraX > 0 and key[pygame.K_a] and El[2].x > -622.5:
+            self.CameraPosX += -4
+        self.x = self.CameraPosX
 
     def HitBox(self, screen):
         self.certall = pygame.draw.rect(screen, black, [self.x, self.y, 48, 48])

@@ -33,10 +33,12 @@ def Load_level_1(screen, choice, P): #Creates the level
         return El, L.i
     elif choice == "custom":
         if L.w == 0:
+            Origin_Block = level(0,0,1,1,white)
             L.Done = level(1480, 940, 200, 40, green)
             E1 = level(20, 948, 100, 20, black)
             L.El.append(L.Done)
             L.El.append(E1)
+            L.El.append(Origin_Block)
             L.w = 1
             Done.cert = Done.draw(screen, P)
             #for i in range(0, random.randint(2,12)):
@@ -83,6 +85,9 @@ class level(EN.enemy):
         self.color = color
     def draw(self,screen, P):
         self.cert = self.create(screen, self.x + P.CameraX, self.y, self.width, self.height, self.color).normalize()
+    def Special_draw(self,screen):
+        self.cert = self.create(screen, self.x, self.y, self.width, self.height, self.color).normalize()
+
 class star(object):
     def __init__(self, screen):
         self.x = random.randint(10,1670)

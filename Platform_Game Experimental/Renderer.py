@@ -16,7 +16,7 @@ height = 980
 currentTime = str(datetime.datetime.now())
 currentTime = currentTime.replace(':', '_')
 
-F = open("logs/Orientation log "+ currentTime + ".txt", "w+")
+F = open("logs/Origin block position log "+ currentTime + ".txt", "w+")
 
 black = [0,0,0] 
 white = [255,255,255]
@@ -70,32 +70,13 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     #    time.sleep(2)
     #    pygame.quit()
     P.HitBox(screen)
+    F.write(str(LB.El[2].x))
+    F.write("\n")
+    P.Camera(LB.El)
     if P.Orientation == "right":
-        screen.blit(image, (P.CameraX + 22, P.y))
-        if R.ID == 0:
-            P.x = 22
-            h = len(LB.El)
-            for i in range(0, h):
-                LB.El[i].x -= 1480
-                Py.CollHappened = True
-                F.write(str(LB.El[i].x))
-                F.write("\n")
-            F.write(str(P.CameraX))
-            R.ID = 1
+        screen.blit(image, (P.CameraPosX, P.y))
     if P.Orientation == "left":
-        screen.blit(pygame.transform.flip(image, True, False), (P.CameraX + 1600, P.y))
-        if R.ID == 1:
-            P.x = 1600
-            h = len(LB.El)
-            i = 0
-            F.write(str(LB.El[1].x))
-            F.write("\n")
-            for i in range(0, h):
-                LB.El[i].x = 1680
-                Py.CollHappened = True
-                F.write(str(LB.El[i].x))
-                F.write("\n")
-            R.ID = 0
+        screen.blit(pygame.transform.flip(image, True, False), (P.CameraPosX, P.y))
     pygame.display.update()
 
 def Score_animation(screen):

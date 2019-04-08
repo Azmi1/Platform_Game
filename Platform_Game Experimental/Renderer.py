@@ -1,4 +1,4 @@
-import pygame, time, Classes, Renderer, level, Pysics, os, Level_Builder
+import pygame, time, Classes, Renderer, level, Pysics, os, Level_Builder, datetime
 
 C=Classes
 L=level
@@ -13,6 +13,10 @@ pygame.display.init()
 width = 1680
 height = 980
 
+currentTime = str(datetime.datetime.now())
+currentTime = currentTime.replace(':', '_')
+
+F = open("logs/Orientation log "+ currentTime + ".txt", "w+")
 
 black = [0,0,0] 
 white = [255,255,255]
@@ -31,7 +35,7 @@ Animation_Image = pygame.image.load("images/explosion.hasgraphics.png").convert_
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
-
+ID = 1
 R.E = []
 R.Tracker= 1
 R.Pixel_down = 0
@@ -65,11 +69,33 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     #    pygame.display.update()
     #    time.sleep(2)
     #    pygame.quit()
-    #P.HitBox(screen)
+    P.HitBox(screen)
     if P.Orientation == "right":
         screen.blit(image, (P.CameraX + 22, P.y))
+        if R.ID == 0:
+            P.x = 22
+            h = len(LB.El)
+            for i in range(0, h):
+                LB.El[i].x -= 1480
+                Py.CollHappened = True
+                F.write(str(LB.El[i].x))
+                F.write("\n")
+            F.write(str(P.CameraX))
+            R.ID = 1
     if P.Orientation == "left":
-        screen.blit(pygame.transform.flip(image, True, False), (P.CameraX + 22, P.y))
+        screen.blit(pygame.transform.flip(image, True, False), (P.CameraX + 1600, P.y))
+        if R.ID == 1:
+            P.x = 1600
+            h = len(LB.El)
+            i = 0
+            F.write(str(LB.El[1].x))
+            F.write("\n")
+            for i in range(0, h):
+                LB.El[i].x = 1680
+                Py.CollHappened = True
+                F.write(str(LB.El[i].x))
+                F.write("\n")
+            R.ID = 0
     pygame.display.update()
 
 def Score_animation(screen):

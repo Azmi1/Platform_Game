@@ -1,9 +1,9 @@
-import pygame, time, Classes, Pysics, Renderer, level, Enemy
+import pygame, time, Classes, Pysics, Renderer, level, Second_Classes
 
 C = Classes
 R = Renderer
 L = level
-EN = Enemy
+SC = Second_Classes
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
@@ -13,8 +13,8 @@ def Collision(screen, Hitboxes, Ecert, E,i, P, RenderL):
     E1cert=Ecert[i]
     Him = E[i]
     Him.cert = E1cert
-    print(pygame.sprite.groupcollide(C.Player, EN.BGroup, False, False))
-    if pygame.sprite.groupcollide(C.Player, EN.BGroup, 0,0) == True:
+    print(pygame.sprite.groupcollide(C.Player, SC.BGroup, False, False))
+    if pygame.sprite.groupcollide(C.Player, SC.BGroup, 0,0) == True:
         print("I am colliding")
         P.MoveX = 0
         P.MoveY = 0

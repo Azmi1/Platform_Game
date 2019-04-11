@@ -1,6 +1,6 @@
-import Enemy, level, pygame, time, random, Level_Builder
+import Second_Classes, level, pygame, time, random, Level_Builder
 
-EN = Enemy
+SC = Second_Classes
 L=Level_Builder
 
 
@@ -43,7 +43,7 @@ def Load_level_1(screen, choice, P): #Creates the level
             Done.cert = Done.draw(screen, P)
             #for i in range(0, random.randint(2,12)):
             #    print("Haga: ", i)
-            #    L.Star[i]=star(screen)
+            #    L.Star[i]=SC.Points()
             #    L.StarL.append(L.Star[i])
         if pygame.mouse.get_pressed()[0] == True: #Left Click and drag to draw
             if L.id == 0:
@@ -76,7 +76,7 @@ def Load_level_1(screen, choice, P): #Creates the level
             L.El.remove(L.Done)
         return L.El, L.i, L.StarL
 
-class level(EN.enemy):
+class level(SC.Block):
     def __init__(self, x, y, width, height, color):
         self.x = x
         self.y = y

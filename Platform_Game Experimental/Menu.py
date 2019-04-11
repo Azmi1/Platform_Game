@@ -1,6 +1,4 @@
-import pygame, Platform_Game
-
-PG = Platform_Game
+import pygame
 
 white = [255, 255, 255]
 red = [255, 0, 0]
@@ -26,9 +24,7 @@ while Running == True:
     if pygame.mouse.get_pressed()[0] == True:
         x, y = pygame.mouse.get_pos()
         if x > 50 and x < 275 and y > 50 and y < 100:
-            Running = False
-            pygame.quit()
-            PG.Start_Game()
+            import Platform_Game
     for event in pygame.event.get():
             if event.type == pygame.QUIT: #For ending the loop
                 pygame.quit()

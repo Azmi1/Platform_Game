@@ -58,6 +58,8 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     x = len(R.E)
     print ("Število kvadratov", x)
     #h = len(StarL)
+    #for i in range(0,h):
+    #    screen.blit(StarL[i].image,(StarL[i].x, StarL[i].y))
     #if R.Start_Animation == True:
     #    R.Start_Animation = Score_animation(screen)
     Score = str(P.Score)

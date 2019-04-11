@@ -1,6 +1,6 @@
-import Enemy, level, pygame, time, random
+import Second_Classes, level, pygame, time, random
 
-EN = Enemy
+SC = Second_Classes
 L=level
 
 
@@ -29,15 +29,15 @@ def Draw_level(screen, El, StarL, P):
     z = len(StarL)
     print("Prisotne tocke: ",z-1)
     E = []
+    #if StarL != []:
+    #    for i in range(0,z-1):
+    #        StarL[i].draw(screen, P).normalize()
+    #        StarL.remove(StarL[i])
+    #        StarL.append(StarL[i])
+            #pygame.display.update(StarL[i].rect)
     for i in range(0,x):
         El[i].draw(screen, P)
         El[i].cert = El[i]
         E.append(El[i].rect)
         #pygame.display.update(El[i].rect)
-    #if StarL != []:
-    #    for i in range(0,z-1):
-    #        StarL[i].draw(screen, P)
-    #        StarL.remove(StarL[i])
-    #        StarL.append(StarL[i])
-    #        pygame.display.update(L.StarL[i].rect)
     return E

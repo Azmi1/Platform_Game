@@ -63,7 +63,7 @@ Experimental #1.5: 8.4.2019 22:14
 		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
 		- You must close the game twice(It's starting to get me on nerves!)
 
-Experimental #1.5: 8.4.2019 22:14
+Experimental #1.6: 11.4.2019 22:06
 	So the stable will be delayed!
 	Renamed classes to be more redable and menu works.
 	Sadly I don't have that much time as I have school.

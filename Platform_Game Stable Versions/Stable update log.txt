@@ -1,0 +1,18 @@
+Update log
+
+Stable #0.1 Date: Unkown Time: Unkown
+	Features:
+		- Point system
+		- Can build blocks
+	Known bugs:
+		- Collision wierd
+		- Blocks must be build specific way to work
+
+Stable #1.0 Date: 13.4.2019 Time: 00:18
+	Features:
+		- Camera was implemented
+		- Bigger worlds
+		- Can still build blocks
+	Known bugs:
+		- Collision is wierd
+		- Blocks must be build specific way to work

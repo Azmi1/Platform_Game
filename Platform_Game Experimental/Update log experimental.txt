@@ -74,3 +74,13 @@ Experimental #1.6: 11.4.2019 22:06
 		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
 		- You must close the game twice(It's starting to get me on nerves!)
 		- Camera if you go back to the start isn't behaving properly
+
+Experimental #1.7: 12.4.2019 15:02
+	Added animation to the player it's a little funky otherwise works great!
+	Known bugs:
+		- Collision is wierd if you don't build the block the right way
+		  (It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
+		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
+		- You must close the game twice(It's starting to get me on nerves!)
+		- Camera if you go back to the start isn't behaving properly

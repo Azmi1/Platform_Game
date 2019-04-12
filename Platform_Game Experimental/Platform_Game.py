@@ -25,7 +25,7 @@ blue =[0,0,255]
 green = [0,255,0]
 magenta = [255,0,255]
 
-#Variable for who knows what:
+#Variables for who knows what:
 i = 1
 PrviZagon = 0
 RenderL=[]

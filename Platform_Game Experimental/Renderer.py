@@ -27,16 +27,30 @@ magenta = [255,0,255]
 
 screen = pygame.display.set_mode((width,height))
 
+PlayerImage = pygame.image.load("images/PlayerAni.png").convert_alpha()
 image = pygame.image.load("images/player.png").convert_alpha()
 icon = pygame.image.load("images/player.ico").convert_alpha()
 star = pygame.image.load("images/LoGo.png").convert_alpha()
 Animation_Image = pygame.image.load("images/explosion.hasgraphics.png").convert_alpha()
 #Background = pygame.image.load("images/background.jpg").convert_alpha()
 
-pygame.font.init()
+PlayerAni_ = {}
+PlayerAniList = []
+PlayerAni_Down = 0
+for i in range(0, 7):
+    for j in range(0,8):
+        PlayerAni_[i] = [25.44 * j, PlayerAni_Down, 25.44, 48]
+        PlayerAniList.append(PlayerAni_[i])
+    PlayerAni_Down += 48
+    j = 0
+
+#Player animation sheet
+
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
 ID = 1
 R.E = []
+Zaporedje = 0
+MejaZaporedja = len(PlayerAniList)
 R.Tracker= 1
 R.Pixel_down = 0
 R.Animation_left = 1
@@ -76,9 +90,13 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     F.write("\n")
     P.Camera(LB.El)
     if P.Orientation == "right":
-        screen.blit(image, (P.CameraPosX, P.y))
+        if R.Zaporedje > R.MejaZaporedja-1:
+            R.Zaporedje = 0
+        screen.blit(PlayerImage, (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje]))
     if P.Orientation == "left":
-        screen.blit(pygame.transform.flip(image, True, False), (P.CameraPosX, P.y))
+        if R.Zaporedje > R.MejaZaporedja-1:
+            R.Zaporedje = 0
+        screen.blit(pygame.transform.flip(PlayerImage, True, False), (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje]))
     pygame.display.update()
 
 def Score_animation(screen):

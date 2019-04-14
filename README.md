@@ -15,7 +15,7 @@ Note: This is my first real game so I am taking my time. And I started proggrami
 - "a" to go left
 - "d" to go right
 - "s" doesn't do anything
-- How to build blocks:
+- How to build blocks(Up to version 1.1):
 	- First left click the left-upper corner point of where you'll put your block then
 	- Right click the right-down corner and the block should appear!
 	- Shall you do it otherwise wierd things will happen

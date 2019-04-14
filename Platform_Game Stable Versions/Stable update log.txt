@@ -16,3 +16,11 @@ Stable #1.0 Date: 13.4.2019 Time: 00:18
 	Known bugs:
 		- Collision is wierd
 		- Blocks must be build specific way to work
+
+Stable #1.1 Date: 14.4.2019 Time: 15:07
+	Features:
+		- Can built blocks in any way you want
+	Fixed bugs:
+		- Need to close game twice!
+	Known bugs:
+		- Collision is wierd

@@ -20,11 +20,15 @@ Note: This is my first real game so I am taking my time. And I started proggrami
 	- Right click the right-down corner and the block should appear!
 	- Shall you do it otherwise wierd things will happen
 	
+***Features:***
+- You can build blocks
+- Movable camera
+- "Infinite" world (It seems like so if you prove me wrong good for you!)
+- There's a 1000 blocks limit need to see how to change it!
+	
 ***Planned features:***
 - Better graphics(as good as I can do them!) date: Not known
-- Bigger worlds(Now it's only a plane in resolution 1280x1024 it would bring more width) date: Next stable update hopefully
-- Moving camera(So you can move through world) date: Next stable update hopefully
-- Two player support(More the merrier!) date: After/next stable update
+- Two player support(More the merrier!) date: Next stable update
 - Some power-ups(Like double jump and more...) date: After the next update
 - New modes(Like Fun mode where you could catapult yourself with blocks) date: unkown
 - World editor tool

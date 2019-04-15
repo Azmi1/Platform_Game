@@ -1,6 +1,7 @@
 Update log
 
 Stable #0.1 Date: Unkown Time: Unkown
+	This is a prequel!
 	Features:
 		- Point system
 		- Can build blocks
@@ -9,6 +10,8 @@ Stable #0.1 Date: Unkown Time: Unkown
 		- Blocks must be build specific way to work
 
 Stable #1.0 Date: 13.4.2019 Time: 00:18
+	The first stable is here!
+	It brings camera and more
 	Features:
 		- Camera was implemented
 		- Bigger worlds
@@ -18,9 +21,11 @@ Stable #1.0 Date: 13.4.2019 Time: 00:18
 		- Blocks must be build specific way to work
 
 Stable #1.1 Date: 14.4.2019 Time: 15:07
+	The quik hotfix for stable 1.0
 	Features:
 		- Can built blocks in any way you want
 	Fixed bugs:
 		- Need to close game twice!
 	Known bugs:
 		- Collision is wierd
+		- Camera if you go back to the start isn't behaving properly

@@ -1,0 +1,96 @@
+Update log
+
+Experimental #1.0 Date: 4.4.2019 Time: 17:13
+	I made progress with movable camera and world!
+	
+	New features:
+		- Started loading more screens so that one is game windown other one is world!
+		- Camera moves
+
+	Known bugs:
+		- Collision doesn't work (Need to se what causes it!)
+
+Experimental #1.1 Date: 4.4.2019 Time: 21:39
+	Fixed a bug and revised how camera and world works!
+	
+	New features:
+		- Scraped new screens know only have one again!
+		- World is actualy bigger!
+		- Better performance than the previous build!
+
+	Known bugs:
+		- Once you collide with the object's side you can't move(I know how to fix it just don't know how to implement)
+		- Once you collide with the object's side caracter goes offscreen(It's same fix as above - at least it should be)
+		- Collision is wierd if you don't build the block the right way(It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!(Been bothering me a while can't figure it out)
+
+Experimental #1.2 Date: 5.4.2019 Time: 14:01
+	Fixed bugs!
+	Known bugs:
+		- Stars don't move(I think I know how to fix it)
+		- If you collide with the object's left side it catapults you to the left(Maybe be kept in game as a separate mode for fun)
+		- Collision is wierd if you don't build the block the right way(It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!(Been bothering me a while can't figure it out)
+
+Experimental #1.3 Date: 6.4.2019 Time: 21:44
+	Fixed bugs!
+	Known bugs:
+		- Stars don't move
+		  (I think I know how to fix it)
+		- If you collide with the object's left side it stops the hitbox but it doens't stop player so player goes to the left while hitbox is at the right(Made it realy slow looking for permanent solution)
+		- Collision is wierd if you don't build the block the right way
+		  (It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
+		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
+		- You must close the game twice(It's starting to get me on nerves!)
+
+Experimental #1.4 Date: 7.4.2019 Time: 17:15
+	Fixed bugs and removed point system needs rework!
+	Known bugs:
+		- Collision is wierd if you don't build the block the right way
+		  (It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
+		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
+		- You must close the game twice(It's starting to get me on nerves!)
+
+Experimental #1.5 Date: 8.4.2019 Time: 22:14
+	Reworked the camera sistem!
+	In the next update maybe will be stable!
+	Known bugs:
+		- Collision is wierd if you don't build the block the right way
+		  (It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
+		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
+		- You must close the game twice(It's starting to get me on nerves!)
+
+Experimental #1.6 Date: 11.4.2019 Time: 22:06
+	So the stable will be delayed!
+	Renamed classes to be more redable and menu works.
+	Sadly I don't have that much time as I have school.
+	Known bugs:
+		- Collision is wierd if you don't build the block the right way
+		  (It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
+		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
+		- You must close the game twice(It's starting to get me on nerves!)
+		- Camera if you go back to the start isn't behaving properly
+
+Experimental #1.7 Date: 12.4.2019 Time: 15:02
+	Added animation to the player it's a little funky otherwise works great!
+	Known bugs:
+		- Collision is wierd if you don't build the block the right way
+		  (It's taking me a little longer than expected)
+		- Another problem with collision(or so I think) you start falling through blocks without any reaseon for it!
+		  (Been bothering me for a while but can't figure it out but it only happens once in a while so it's not so game breaking)
+		- You must close the game twice(It's starting to get me on nerves!)
+		- Camera if you go back to the start isn't behaving properly
+
+Experimental #2.0 Date: 15.4.2019 17:16
+	Yea already started on second experimental build!
+	New feature:
+		- You can texture blocks now
+	Fixed bugs:
+		- You could go through bottom of the block
+	Bugs:
+		- Collision is wierd(at the start of the game then gets better)
+		- Camera if you go back to the start isn't behaving properly

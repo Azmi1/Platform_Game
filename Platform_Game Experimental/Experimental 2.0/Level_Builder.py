@@ -1,9 +1,7 @@
-import Second_Classes, level, pygame, time, random, Level_Builder
+import  pygame, Level_Builder, Second_Classes, random
 
+L = Level_Builder
 SC = Second_Classes
-L=Level_Builder
-
-
 
 black = [0,0,0]
 white = [255,255,255]
@@ -20,9 +18,11 @@ L.y = 0
 L.y1 = 0
 L.j = 0
 L.st = 2
+L.StEnemy = 0
 L.i = 1
 L.id = 0
 L.w = 0
+L.EnemyGroup = []
 L.El = []
 L.El_1 = []
 L.Star = {}
@@ -36,10 +36,10 @@ def Load_level_1(screen, choice, P): #Creates the level
         return El, L.i
     elif choice == "custom":
         if L.w == 0:
-            Trump_Wall = level(0,0,40,1680, black, False, True, Block_Image)
-            Origin_Block = level(-1,0,1,1,white, True)
-            L.Done = level(1480, 940, 200, 40, green, True)
-            E1 = level(40, 948, 100, 20, black, True)
+            Trump_Wall = level(0, 0, 0, 40, 1680, black, False, True, Block_Image)
+            Origin_Block = level(0, -1, 0, 1, 1, white, True)
+            L.Done = level(0, 1480, 940, 200, 40, green, True)
+            E1 = level(0,40, 948, 100, 20, black, True)
             L.El.append(L.Done)
             L.El.append(E1)
             L.El.append(Origin_Block)
@@ -60,6 +60,7 @@ def Load_level_1(screen, choice, P): #Creates the level
         if pygame.mouse.get_pressed()[2] == True: #Left Click and drag to draw
             if L.id == 1:
                 E = {}
+                Enemy = {}
                 L.x1, L.y1 = pygame.mouse.get_pos()
                 if L.x > L.x1:
                     Tx =L.x
@@ -71,9 +72,15 @@ def Load_level_1(screen, choice, P): #Creates the level
                     L.y1 = Ty
                 print (L.x1)
                 print (L.y1)
+                PrevX1 = L.x1
                 width = L.x1 - L.x
                 height = L.y1 - L.y
-                E[L.st] = level(L.x, L.y, width, height, black, True)
+                E[L.st] = level(PrevX1, L.x, L.y, width, height, black, True)
+                RandProc = random.randint(1,100)
+                if RandProc > 75:
+                    Enemy[L.StEnemy] = SC.Enemy(E[L.st])
+                    Enemy[L.StEnemy].Hitbox(screen)
+                    L.EnemyGroup.append(Enemy[L.StEnemy])
                 if len(L.El) < 1000:
                     L.El.append(E[L.st])
                 L.st +=1
@@ -88,12 +95,13 @@ def Load_level_1(screen, choice, P): #Creates the level
         if L.x > 1480 and L.x < 1720 and L.y > 940 and L.y < 1020:
             L.i = 2
             L.El.remove(L.Done)
-        return L.El, L.i, L.StarL, L.El_1
+        return L.El, L.i, L.StarL, L.EnemyGroup
 
 class level(SC.Block):
-    def __init__(self, x, y, width, height, color, CanJumpReg, ImagePresent = 'False', Image = ''):
+    def __init__(self, PrevX1, x, y, width, height, color, CanJumpReg, ImagePresent = 'False', Image = ''):
         self.x = x
         self.y = y
+        self.PrevX1 = PrevX1
         self.width = width
         self.imagePresent = ImagePresent
         self.image = Image

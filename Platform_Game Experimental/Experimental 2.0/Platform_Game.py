@@ -1,18 +1,17 @@
-import pygame, time, Classes, Renderer, level, Pysics, Platform_Game, Level_Builder, sys
-
-
-# These 4 lines make a mudule 1 character long for ease of use
-PG = Platform_Game
-C = Classes   
-R = Renderer
-L = level
-LB=Level_Builder
-Py = Pysics
+import pygame
+import time
+import sys
+import Classes as C
+import Renderer as R
+import level as L
+import Pysics as Py
+import Platform_Game as PG
+import Level_Builder as LB
 
 # Creates screen
 width = 1680
 height = 980
-screen = R.Create_screen(width,height)
+screen = pygame.display.set_mode((width, height))
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
@@ -53,14 +52,14 @@ def main():
             print("I am wrong")
             Py.Gravity(P)
         if PG.i == 1:
-            R.El, PG.i, StarL, L.El_1 = LB.Load_level_1(screen, "custom", P)
+            R.El, PG.i, StarL, L.EnemyGroup = LB.Load_level_1(screen, "custom", P)
             print ("Level loading/creating")
         HitBoxes = P.HitBox(screen)
         if PrviZagon == 0:
             PG.RenderL.append(R.El)
             PG.RenderL.append(StarL)
             PG.RenderL.append(HitBoxes)
-            PG.RenderL.append(L.El_1)
+            PG.RenderL.append(L.EnemyGroup)
         #h = len(StarL)
         #i = 0
         #for i in range(0,h-1):
@@ -74,6 +73,10 @@ def main():
         for i in range(0,x):
             if P.certall.colliderect(R.E[i]):
                 Py.Collision(screen, HitBoxes, R.E, R.El, i, P, RenderL)
+        if L.EnemyGroup != []:
+            for i in range(0, len(L.EnemyGroup)):
+                if P.certall.colliderect(L.EnemyGroup[i].CertAll):
+                    Py.Collision_Enemy(screen, P, L.EnemyGroup[i], L.EnemyGroup)
         Py.Borders(P, screen)
         RenderL = PG.RenderL
         R.Build_screen(screen, P, RenderL) #Function that renders the scene

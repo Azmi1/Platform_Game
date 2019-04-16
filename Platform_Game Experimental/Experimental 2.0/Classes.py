@@ -1,21 +1,7 @@
-import pygame, time, Classes, Renderer, level, Pysics
-
-R = Renderer
-L = level
-Py = Pysics
-Cl = Classes
-
-Special_Draw = True
-black = [0, 0, 0]
-white = [255, 255, 255]
-red = [255, 0, 0]
-blue = [0, 0, 255]
-green = [0, 255, 0]
-magenta = [255, 0, 255]
-
-Player = pygame.sprite.Group()
-
-CanSpeed = False
+import pygame
+import Classes as Cl
+import Pysics as Py
+import Renderer as R
 
 class player(pygame.sprite.Sprite):
     def __init__(self):
@@ -115,5 +101,22 @@ class player(pygame.sprite.Sprite):
         self.certIn = pygame.draw.rect(screen, magenta, [self.x + 3, self.y + 3, 19.44, 42])
         self.certRight = pygame.draw.rect(screen, green, [self.x + 22.44, self.y + 3, 3, 42])
         self.certbottom = pygame.draw.rect(screen, blue, [self.x, self.y + 45, 25.44, 3])
+        self.certBottomLeft = pygame.draw.rect(screen, green, [self.x, self.y + 45, 3, 3])
+        self.certBottomRight = pygame.draw.rect(screen, red, [self.x + 22.44, self.y + 45, 3, 3])
         HitBoxes = [self.certall, self.certtop, self.certLeft, self.certIn, self.certRight, self.certbottom]
         return HitBoxes
+
+
+Special_Draw = True
+black = [0, 0, 0]
+white = [255, 255, 255]
+red = [255, 0, 0]
+blue = [0, 0, 255]
+green = [0, 255, 0]
+magenta = [255, 0, 255]
+
+Player = pygame.sprite.Group()
+
+CanSpeed = False
+
+print(" ")

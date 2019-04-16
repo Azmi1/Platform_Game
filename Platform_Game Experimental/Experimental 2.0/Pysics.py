@@ -1,9 +1,4 @@
-import pygame, time, Classes, Pysics, Renderer, level, datetime
-
-C = Classes
-R = Renderer
-L = level
-Py = Pysics
+import pygame, datetime
 
 currentTime = str(datetime.datetime.now())
 currentTime = currentTime.replace(':', '_')
@@ -52,6 +47,18 @@ def Collision(screen, Hitboxes, Ecert, E,i, P, RenderL):
     else:
         print("Collision false")
         Py.CollHappened = False
+
+def Collision_Enemy(screen, P, Him, EnemyGroup):
+    if P.certbottom.colliderect(Him.CertTop) and not(P.certRight.colliderect(Him.CertTop)) and not(P.certLeft.colliderect(Him.CertTop)):
+        EnemyGroup.remove(Him)
+    elif P.certtop.colliderect(Him.CertBottom) and P.certLeft.colliderect(Him.CertBottom) or P.certbottom.colliderect(Him.CertBottom) and P.certLeft.colliderect(Him.CertBottom) or P.certbottom.colliderect(Him.CertBottom) and P.certLeft.colliderect(Him.CertBottom) and P.certtop.colliderect(Him.CertBottom) or P.certLeft.colliderect(Him.CertBottom):
+        P.CameraX = - 0.2
+        F.write("Collision with left side")
+        F.write("\n")
+    elif P.certtop.colliderect(Him.CertBottom) and P.certRight.colliderect(Him.CertBottom) or P.certbottom.colliderect(Him.CertBottom) and P.certRight.colliderect(Him.CertBottom) or P.certtop.colliderect(Him.CertBottom) and P.certRight.colliderect(Him.CertBottom) and P.certbottom.colliderect(Him.CertBottom) or P.certRight.colliderect(Him.CertBottom):
+        P.CameraX= + 0.2
+        F.write("Collision with right side")
+        F.write("\n")
 
 def Gravity(self):
     self.y +=3

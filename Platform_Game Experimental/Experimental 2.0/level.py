@@ -1,6 +1,5 @@
-import Second_Classes, level, pygame, time, random, Classes
+import level, pygame, Classes
 
-SC = Second_Classes
 L=level
 Cl = Classes
 
@@ -25,11 +24,12 @@ L.w = 0
 L.El = []
 
 
-def Draw_level(screen, El, StarL, P, El_1):
+def Draw_level(screen, El, StarL, P, EnemyGroup):
     x = len(El)
-    y = len(El_1)
+    y = len(EnemyGroup)
     z = len(StarL)
-    print("Prisotne tocke: ",z-1)
+    print("Prisotne tocke: ",z)
+    print("Prisotni stricki: ", y)
     E = []
     #if StarL != []:
     #    for i in range(0,z-1):
@@ -44,4 +44,8 @@ def Draw_level(screen, El, StarL, P, El_1):
             El[i].Special_draw(screen)
         E.append(El[i].rect)
         #pygame.display.update(El[i].rect)
+    if EnemyGroup != []:
+        for j in range(0,y):
+            EnemyGroup[j].Hitbox(screen)
+            EnemyGroup[j].display(screen)
     return E

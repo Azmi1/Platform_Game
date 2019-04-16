@@ -1,4 +1,4 @@
-import pygame, time, Second_Classes, Renderer, random
+import pygame, random
 
 black = [0,0,0]
 white = [255,255,255]
@@ -9,6 +9,22 @@ magenta = [255,0,255]
 transparent = [0,0,0,128]
 
 BGroup = pygame.sprite.Group()
+
+class Enemy(object):
+    def __init__(self, Him):
+        self.x = Him.x + (random.randint(Him.x, Him.PrevX1) - Him.x)
+        self.y = Him.y - 48
+        self.image = pygame.image.load("images/player.png").convert_alpha()
+
+    def Hitbox(self, screen):
+        self.CertAll = pygame.draw.rect(screen, magenta, [self.x, self.y, 48, 48])
+        self.CertBottom = pygame.draw.rect(screen, blue, [self.x, self.y + 1, 48, 47])
+        self.CertTop = pygame.draw.rect(screen, red, [self.x, self.y, 48, 1])
+        Hitbox = [self.CertBottom, self.CertTop, self.CertAll]
+        return Hitbox
+
+    def display(self,screen):
+        screen.blit(self.image,(self.x, self.y))
 
 class Points(object):
     def __init__(self):
@@ -40,3 +56,5 @@ class Block(pygame.sprite.Sprite):
             screen.blit(self.image,(self.x, self.y),(0,0, self.width, self.height))
         BGroup.add(self)
         return self.rect
+
+print("Second_Classes loaded")

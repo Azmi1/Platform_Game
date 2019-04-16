@@ -58,21 +58,18 @@ R.Animation_number = 0
 Start_Animation = False
 pygame.display.set_icon(icon)
 pygame.display.set_caption('Platform game')
-def Create_screen(width, height): #creates the screen
-    screen = pygame.display.set_mode((width,height))
-    return screen
 
 def Build_screen(screen, P, RenderL):#Renders the scene
     R.EL = RenderL[0]
     StarL = RenderL[1]
     HitBoxes = RenderL[2]
-    El_1 = RenderL[3]
+    EnemyGroup = RenderL[3]
     screen.fill(white)
     #screen.blit(R.Background,(0,0))
     pygame.display.get_caption()
-    R.E = L.Draw_level(screen, R.El, StarL, P, El_1)
+    R.E = L.Draw_level(screen, R.El, StarL, P, EnemyGroup)
     x = len(R.E)
-    y = len(El_1)
+    y = len(EnemyGroup)
     print ("Število kvadratov v prvi listi:", x)
     print ("Število kvadratov v drugi listi:", y)
     #h = len(StarL)

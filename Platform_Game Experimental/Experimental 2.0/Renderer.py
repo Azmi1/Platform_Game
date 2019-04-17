@@ -18,6 +18,7 @@ currentTime = currentTime.replace(':', '_')
 
 F = open("logs/Origin block position log "+ currentTime + ".txt", "w+")
 
+# Defines colours
 black = [0,0,0] 
 white = [255,255,255]
 red = [255,0,0]
@@ -34,17 +35,17 @@ star = pygame.image.load("images/LoGo.png").convert_alpha()
 Animation_Image = pygame.image.load("images/explosion.hasgraphics.png").convert_alpha()
 #Background = pygame.image.load("images/Block.jpg").convert_alpha()
 
+#Player animation sheet
 PlayerAni_ = {}
 PlayerAniList = []
 PlayerAni_Down = 0
-for i in range(0, 7):
+for i in range(0, 7): # Automaticly saves the settings for the player animation
     for j in range(0,8):
         PlayerAni_[i] = [25.44 * j, PlayerAni_Down, 25.44, 48]
         PlayerAniList.append(PlayerAni_[i])
     PlayerAni_Down += 48
     j = 0
 
-#Player animation sheet
 
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
 ID = 1
@@ -67,7 +68,7 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     screen.fill(white)
     #screen.blit(R.Background,(0,0))
     pygame.display.get_caption()
-    R.E = L.Draw_level(screen, R.El, StarL, P, EnemyGroup)
+    R.E = L.Draw_level(screen, R.El, StarL, P, EnemyGroup) # Draws level
     x = len(R.E)
     y = len(EnemyGroup)
     print ("Število kvadratov v prvi listi:", x)
@@ -79,7 +80,7 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     #    R.Start_Animation = Score_animation(screen)
     Score = str(P.Score)
     PS = myfont.render(Score, False, red)
-    screen.blit(PS, [840,0])
+    screen.blit(PS, [840,0]) # Displays score
     #if h <= 1:
     #    PS = myfont.render('Bravo pobrali ste vse možne točke', False, red)
     #    screen.blit(PS, [650,490])
@@ -90,17 +91,17 @@ def Build_screen(screen, P, RenderL):#Renders the scene
     F.write(str(LB.El[2].x))
     F.write("\n")
     P.Camera(LB.El)
-    if P.Orientation == "right":
-        if R.Zaporedje > R.MejaZaporedja-1:
+    if P.Orientation == "right": # Display player if his orientation is to the right
+        if R.Zaporedje > R.MejaZaporedja-1: # Restarts the animation
             R.Zaporedje = 0
-        screen.blit(PlayerImage, (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje]))
-    if P.Orientation == "left":
-        if R.Zaporedje < 0:
+        screen.blit(PlayerImage, (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje])) # Displays player and crops it
+    if P.Orientation == "left": # Display player if his orientation is to the left
+        if R.Zaporedje < 0: # Restarts the animation
             R.Zaporedje = R.MejaZaporedja - 1
-        screen.blit(pygame.transform.flip(PlayerImage, True, False), (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje]))
+        screen.blit(pygame.transform.flip(PlayerImage, True, False), (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje])) # Displays player, flips and crops it
     pygame.display.update()
 
-def Score_animation(screen):
+def Score_animation(screen): # Legacy system for displaying the score
     while R.Animation_number < 72:
            if R.Animation_number%8==0:
                 R.Pixel_down = 100 * R.Tracker

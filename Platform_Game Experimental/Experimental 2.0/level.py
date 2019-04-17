@@ -4,7 +4,7 @@ L=level
 Cl = Classes
 
 
-
+# Defines colours
 black = [0,0,0]
 white = [255,255,255]
 red = [255,0,0]
@@ -12,6 +12,7 @@ blue =[0,0,255]
 green = [0,255,0]
 magenta = [255,0,255]
 
+# Variables used in the creation
 L.x = 0
 L.x1 = 0
 L.y = 0
@@ -24,7 +25,7 @@ L.w = 0
 L.El = []
 
 
-def Draw_level(screen, El, StarL, P, EnemyGroup):
+def Draw_level(screen, El, StarL, P, EnemyGroup): # Draws the level
     x = len(El)
     y = len(EnemyGroup)
     z = len(StarL)
@@ -37,15 +38,18 @@ def Draw_level(screen, El, StarL, P, EnemyGroup):
     #        StarL.remove(StarL[i])
     #        StarL.append(StarL[i])
             #pygame.display.update(StarL[i].rect)
-    for i in range(0,x):
+    for i in range(0,x): # Draws the blocks
         if Cl.Special_Draw == False:
             El[i].draw(screen, P)
         elif Cl.Special_Draw == True:
             El[i].Special_draw(screen)
         E.append(El[i].rect)
         #pygame.display.update(El[i].rect)
-    if EnemyGroup != []:
-        for j in range(0,y):
+    if EnemyGroup != []: # Draws the enemies
+        for j in range(1,y):
             EnemyGroup[j].Hitbox(screen)
-            EnemyGroup[j].display(screen)
+            if Cl.Special_Draw == False:
+                EnemyGroup[j].display(screen, P)
+            elif Cl.Special_Draw == True:
+                EnemyGroup[j].Special_Display(screen)
     return E

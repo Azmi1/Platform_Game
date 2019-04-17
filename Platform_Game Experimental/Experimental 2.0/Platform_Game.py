@@ -46,9 +46,9 @@ def main():
     while Running == True:  # Makes a game loop
         RenderL = PG.RenderL
         P.move(screen, P)  # Function that makes player move
-        if P.Moving == True and P.Jumping == True:
+        if P.Moving == True and P.Jumping == True: # Cheks if the gravity will work
             print("I am moving")
-        elif P.Moving == False and P.Jumping == False and PG.Gravity == True:
+        elif P.Moving == False and P.Jumping == False and PG.Gravity == True: # Cheks if the gravity will work
             print("I am wrong")
             Py.Gravity(P)
         if PG.i == 1:
@@ -70,14 +70,18 @@ def main():
         #        StarL.remove(StarL[i])
         i=0
         x = len(R.E)
-        for i in range(0,x):
+        for i in range(0,x): # Checks for any collision with blocks
             if P.certall.colliderect(R.E[i]):
                 Py.Collision(screen, HitBoxes, R.E, R.El, i, P, RenderL)
-        if L.EnemyGroup != []:
-            for i in range(0, len(L.EnemyGroup)):
-                if P.certall.colliderect(L.EnemyGroup[i].CertAll):
-                    Py.Collision_Enemy(screen, P, L.EnemyGroup[i], L.EnemyGroup)
-        Py.Borders(P, screen)
+        j = 0
+        if L.EnemyGroup != []: # Checks for any collisions with enemies
+            for j in range(0, len(L.EnemyGroup)):
+                if L.EnemyGroup != []:
+                    if P.certall.colliderect(L.EnemyGroup[j-1].CertAll):
+                        Py.Collision_Enemy(screen, P, L.EnemyGroup[j-1], L.EnemyGroup)
+                        if j != 0:
+                            j-=1                    
+        # Py.Borders(P, screen) used in old version
         RenderL = PG.RenderL
         R.Build_screen(screen, P, RenderL) #Function that renders the scene
         PG.updates += 1
@@ -85,7 +89,7 @@ def main():
         T2 = time.clock()
         T = T2-PG.t0
         print("Toliko casa minilo: ", T)
-        if T > 10 and PG.Approval == True:
+        if T > 10 and PG.Approval == True: # System to measure how much loops happened in 10 seconds 
             PS = myfont.render('Updates per 10 seconds:', False, red)
             PG.updates = str(PG.updates)
             PS1 = myfont.render(PG.updates, False, red)
@@ -103,6 +107,7 @@ P = C.player()
 screen.fill(white)
 pygame.display.update()
 
+# Closses the loop
 def Close_Game():
     PG.Running = False
     pygame.quit()

@@ -3,56 +3,51 @@ import Classes as Cl
 import Pysics as Py
 import Renderer as R
 
-class player(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        Player.add(self)
-        self.CameraX = 0
-        self.x = 42
-        self.PrevX = self.x
+class player(pygame.sprite.Sprite): #Defines player that you play
+    def __init__(self): #Setups the player
+        #pygame.sprite.Sprite.__init__(self)
+        #Player.add(self)
+        self.CameraX = 0 #Sets the world camera position
+        self.x = 42 #Used mainly for the hitbox
         self.y = 900
-        self.image = pygame.image.load("images/player.png")
-        self.rect = self.image.get_rect()
-        self.Jump = True
-        self.Jumping = False
-        self.Score = 0
-        self.Moving = False
+        self.Jump = True # Defines if you can jump so you can't jump infinitely
+        self.Jumping = False # Defines so that the gravity dosn't pull you down
+        self.Score = 0  
+        self.Moving = False # Same as Jumping
         self.MoveY = 0
         self.MoveX = 0
-        self.CameraPosX = self.CameraX + 42
-        self.Orientation = "right"
+        self.CameraPosX = self.CameraX + 42 # Where on x line you spawn
+        self.Orientation = "right" # Where the player looks at
 
-    def move(self, screen, P):
+    def move(self, screen, P): # Defines player movement
         surface = screen
-        key = pygame.key.get_pressed()
+        key = pygame.key.get_pressed() # Registers key press
         dist = 3
-        if key[pygame.K_UP]:
-            self.MoveY = -3
-        if self.Jump == True:
+        if self.Jump == True: # Checks if you can jump
             if key[pygame.K_w]:
                 self.MoveY = -5
                 self.Moving = True
                 self.Jumping = True
                 self.Jump = False
-        if self.MoveY < 0:
+        if self.MoveY < 0: # this check if the variable is smaller 0 if it is it starts smoothing to 0
                 self.MoveY += 0.15
                 self.Moving = True
         else:
                 self.Moving = False
                 self.Jumping = False
-        if key[pygame.K_d]:
+        if key[pygame.K_d]: # This moves player right
             if self.CameraX > -3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
                 self.CameraX -= 1
                 self.Orientation = "right"
             self.Moving = False
             R.Zaporedje += 1
-        elif key[pygame.K_a]:
+        elif key[pygame.K_a]: # This moves player left
             if self.CameraX < 3 and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
                 self.CameraX += 1
                 self.Orientation = "left"
             self.Moving = False
             R.Zaporedje -= 1
-        else:
+        else: # All this is for slowly stopping
             if self.CameraX > 3.5:
                 self.CameraX = 3
             if self.CameraX < -3.5:
@@ -66,10 +61,10 @@ class player(pygame.sprite.Sprite):
                 self.CameraX += 0.1
         self.y += self.MoveY
 
-    def Camera(self, El):
+    def Camera(self, El): # Controls the camera
         key = pygame.key.get_pressed()
         print("Kje je kamera na x osi: " + str(self.CameraPosX))
-        if El[2].x >= -4 and self.CameraPosX <= 823:
+        if El[2].x >= -4 and self.CameraPosX <= 823: # Controls the start of the game
             Cl.Special_Draw = True
             if El[2].x > 0:
                 self.CameraPosX = self.CameraX + 42
@@ -77,7 +72,7 @@ class player(pygame.sprite.Sprite):
                 self.CameraPosX += 4
             elif El[2].x <= 0 and self.CameraPosX <= 832 and self.CameraX > 0 and key[pygame.K_a] and El[2].x > -622.5 and self.CameraPosX >= 40:
                 self.CameraPosX += -4
-        elif El[2].x <= - 622.5 or self.CameraPosX >= 824:
+        elif El[2].x <= - 622.5 or self.CameraPosX >= 824: # Controls the rest the game
             Cl.Special_Draw = False
             print("Navadno rise kot ponavadi")
             if El[2].x > 0:
@@ -94,7 +89,7 @@ class player(pygame.sprite.Sprite):
             self.CameraPosX += -4
         self.x = self.CameraPosX
 
-    def HitBox(self, screen):
+    def HitBox(self, screen): # Hitboxes for player
         self.certall = pygame.draw.rect(screen, black, [self.x, self.y, 25.44, 48])
         self.certtop = pygame.draw.rect(screen, red, [self.x, self.y, 25.44, 3])
         self.certLeft = pygame.draw.rect(screen, green, [self.x, self.y + 3, 3, 42])

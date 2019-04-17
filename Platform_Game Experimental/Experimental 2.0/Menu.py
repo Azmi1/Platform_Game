@@ -1,5 +1,6 @@
 import pygame
 
+# Defines colours
 white = [255, 255, 255]
 red = [255, 0, 0]
 black = [0, 0, 0]
@@ -19,7 +20,7 @@ screen.blit(PS, [55,50])
 
 pygame.display.update()
 
-while Running == True:
+while Running == True: # Main loop for menu
     print("Working...")
     if pygame.mouse.get_pressed()[0] == True:
         x, y = pygame.mouse.get_pos()

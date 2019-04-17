@@ -1,5 +1,15 @@
 Update log
 
+Experimental #2.2 Date: 17.4.2019 22:12
+	Another long session of programing
+	Hope it doesn't disappoint!
+	New feature:
+		- Better commenting
+		- Remaped the spawning of enemies to middleclick
+	Bugs:
+		- Collision is wierd(at the start of the game then gets better)
+		- Camera if you go back to the start isn't behaving properly
+
 Experimental #2.1 Date: 16.4.2019 22:58
 	Yea this took 1 hour...
 	Hope it doesn't disappoint!
@@ -8,6 +18,7 @@ Experimental #2.1 Date: 16.4.2019 22:58
 	Bugs:
 		- Collision is wierd(at the start of the game then gets better)
 		- Camera if you go back to the start isn't behaving properly
+		- Sometimes crashes when colliding with enemies
 		
 Experimental #2.0 Date: 15.4.2019 17:16
 	Yea already started on second experimental build!

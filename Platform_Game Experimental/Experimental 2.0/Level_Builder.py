@@ -1,8 +1,9 @@
-import  pygame, Level_Builder, Second_Classes, random
+import  pygame, Level_Builder, Second_Classes, random, time
 
 L = Level_Builder
 SC = Second_Classes
 
+# Defines colours
 black = [0,0,0]
 white = [255,255,255]
 red = [255,0,0]
@@ -10,8 +11,10 @@ blue =[0,0,255]
 green = [0,255,0]
 magenta = [255,0,255]
 
+# Loads in image
 Block_Image = pygame.image.load("images/Block.jpg")
 
+# Variables needed
 L.x = 0
 L.x1 = 0
 L.y = 0
@@ -27,6 +30,8 @@ L.El = []
 L.El_1 = []
 L.Star = {}
 L.StarL = []
+L.Cant_Enemy = False
+L.T1 = time.clock()
 
 def Load_level_1(screen, choice, P): #Creates the level
     if choice == "normal":
@@ -60,7 +65,6 @@ def Load_level_1(screen, choice, P): #Creates the level
         if pygame.mouse.get_pressed()[2] == True: #Left Click and drag to draw
             if L.id == 1:
                 E = {}
-                Enemy = {}
                 L.x1, L.y1 = pygame.mouse.get_pos()
                 if L.x > L.x1:
                     Tx =L.x
@@ -76,17 +80,23 @@ def Load_level_1(screen, choice, P): #Creates the level
                 width = L.x1 - L.x
                 height = L.y1 - L.y
                 E[L.st] = level(PrevX1, L.x, L.y, width, height, black, True)
-                RandProc = random.randint(1,100)
-                if RandProc > 75:
-                    Enemy[L.StEnemy] = SC.Enemy(E[L.st])
-                    Enemy[L.StEnemy].Hitbox(screen)
-                    L.EnemyGroup.append(Enemy[L.StEnemy])
                 if len(L.El) < 1000:
                     L.El.append(E[L.st])
                 L.st +=1
                 L.j == 2
                 L.id = 0
         
+        if pygame.mouse.get_pressed()[1] == True and L.Cant_Enemy == False: #Middle click to create enemies
+            L.x1, L.y1 = pygame.mouse.get_pos()
+            Enemy = {}
+            Enemy[L.StEnemy] = SC.Enemy(L.x1, L.y1)
+            Enemy[L.StEnemy].Hitbox(screen)
+            L.EnemyGroup.append(Enemy[L.StEnemy])
+            L.StEnemy += 1
+            L.T1= time.clock()
+            L.Cant_Enemy = True
+        if time.clock() - L.T1 > 0.25:
+            L.Cant_Enemy = False
         if len(L.El) > 1000:
             L.i = 0
             L.El.remove(L.Done)
@@ -97,8 +107,8 @@ def Load_level_1(screen, choice, P): #Creates the level
             L.El.remove(L.Done)
         return L.El, L.i, L.StarL, L.EnemyGroup
 
-class level(SC.Block):
-    def __init__(self, PrevX1, x, y, width, height, color, CanJumpReg, ImagePresent = 'False', Image = ''):
+class level(SC.Block): # Blocks
+    def __init__(self, PrevX1, x, y, width, height, color, CanJumpReg, ImagePresent = 'False', Image = ''): # Puts everything needed for the class
         self.x = x
         self.y = y
         self.PrevX1 = PrevX1
@@ -108,12 +118,12 @@ class level(SC.Block):
         self.height = height
         self.color = color
         self.CanCanJumpReg = CanJumpReg
-    def draw(self,screen, P):
+    def draw(self,screen, P): # Draws the blocks
         self.cert = self.create(screen, self.x + P.CameraX, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
-    def Special_draw(self,screen):
+    def Special_draw(self,screen): # Draws the blocks in a special way... ;)
         self.cert = self.create(screen, self.x, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
 
-class star(object):
+class star(object): # Old point system
     def __init__(self, screen):
         self.x = random.randint(10,1670)
         self.y = random.randint(10, 970)

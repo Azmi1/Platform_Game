@@ -1,5 +1,16 @@
 Update log
 
+Experimental #2.4 Date: 19.4.2019 14:38
+	Added life system and enemies now deal damage
+	New features:
+		- Life system
+		- Enemies now deal damage
+		- If you take damage it respawns you at the start
+	Bugs:
+		- Collision is wierd(at the start of the game then gets better)
+		- Enemies get teleported with you to the start
+		- Camera if you go back to the start isn't behaving properly
+
 Experimental #2.3 Date: 18.4.2019 22:40
 	Small hotfix
 	Fixed bugs:

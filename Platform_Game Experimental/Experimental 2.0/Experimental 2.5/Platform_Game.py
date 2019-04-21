@@ -49,20 +49,21 @@ def main():
         if Character_Dead == True:
             PG.Close_Game()
         RenderL = PG.RenderL
-        P.move(screen, P)  # Function that makes player move
-        if P.Moving == True and P.Jumping == True: # Cheks if the gravity will work
-            print("I am moving")
-        elif P.Moving == False and P.Jumping == False and PG.Gravity == True: # Cheks if the gravity will work
-            print("I am wrong")
-            Py.Gravity(P)
+        for i in range(0, len(PG.PlayerGroup)):
+            PG.PlayerGroup[i].move(screen)  # Function that makes player move
+            if PG.PlayerGroup[i].Moving == True and PG.PlayerGroup[i].Jumping == True: # Cheks if the gravity will work
+                print("I am moving")
+            elif PG.PlayerGroup[i].Moving == False and PG.PlayerGroup[i].Jumping == False and PG.Gravity == True: # Cheks if the gravity will work
+                print("I am wrong")
+                Py.Gravity(PG.PlayerGroup[i])
+            Py.Borders(PlayerGroup[i], screen) # Used if players goes under screen
+            PG.HitBox = PG.PlayerGroup[i].HitBox(screen)
         if PG.i == 1:
             R.El, PG.i, StarL, L.EnemyGroup = LB.Load_level_1(screen, "custom", P)
             print ("Level loading/creating")
-        HitBoxes = P.HitBox(screen)
         if PrviZagon == 0:
             PG.RenderL.append(R.El)
             PG.RenderL.append(StarL)
-            PG.RenderL.append(HitBoxes)
             PG.RenderL.append(L.EnemyGroup)
         #h = len(StarL)
         #i = 0
@@ -73,21 +74,24 @@ def main():
         #        R.Start_Animation = True
         #        StarL.remove(StarL[i])
         i=0
+        j = 0
         x = len(R.E)
         for i in range(0,x): # Checks for any collision with blocks
-            if P.certall.colliderect(R.E[i]):
-                Py.Collision(screen, HitBoxes, R.E, R.El, i, P, RenderL)
+            for j in range(0,len(PG.PlayerGroup)):
+                if PG.PlayerGroup[j].certall.colliderect(R.E[i]):
+                    Py.Collision(screen, R.E, R.El, i, PG.PlayerGroup[j], RenderL)
         j = 0
+        i = 0
         if L.EnemyGroup != []: # Checks for any collisions with enemies
             for j in range(0, len(L.EnemyGroup)):
                 if L.EnemyGroup != []:
-                    if P.certall.colliderect(L.EnemyGroup[j-1].CertAll):
-                        Py.Collision_Enemy(screen, P, L.EnemyGroup[j-1], L.EnemyGroup, R.El)
-                        if j != 0:
-                            j-=1                    
-        Py.Borders(P, screen) # Used if players goes under screen
+                    for i in range(0, len(PG.PlayerGroup)):
+                        if PG.PlayerGroup[i].certall.colliderect(L.EnemyGroup[j-1].CertAll):
+                            Py.Collision_Enemy(screen, PG.PlayerGroup[i], L.EnemyGroup[j-1], L.EnemyGroup, R.El)
+                            if j != 0:
+                                j-=1                    
         RenderL = PG.RenderL
-        R.Build_screen(screen, P, RenderL, PG.Character_Dead) #Function that renders the scene
+        R.Build_screen(screen, PG.PlayerGroup, RenderL, PG.Character_Dead) #Function that renders the scene
         PG.updates += 1
         print("Update: ", updates)
         T2 = time.clock()
@@ -108,6 +112,8 @@ def main():
                 PG.Close_Game()
 #Prepares all essentials for game loop
 P = C.player()
+P_2 = C.player_two()
+PlayerGroup = [P,P_2]
 screen.fill(white)
 pygame.display.update()
 
@@ -116,7 +122,7 @@ def Close_Game():
     PG.Running = False
     pygame.quit()
     print("I closed")
-    sys.exit()
+    sys.exit(0)
 
 #Calls the game loop
 main()

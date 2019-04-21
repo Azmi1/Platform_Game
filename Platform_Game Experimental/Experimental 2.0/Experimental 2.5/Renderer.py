@@ -16,7 +16,7 @@ height = 980
 currentTime = str(datetime.datetime.now())
 currentTime = currentTime.replace(':', '_')
 
-F = open("logs/Origin block position log "+ currentTime + ".txt", "w+")
+F = open("logs/Origin block position log latest.txt", "w+")
 
 # Defines colours
 black = [0,0,0] 
@@ -60,46 +60,47 @@ Start_Animation = False
 pygame.display.set_icon(icon)
 pygame.display.set_caption('Platform game')
 
-def Build_screen(screen, P, RenderL, Character_Dead):#Renders the scene
+def Build_screen(screen, PlayerGroup, RenderL, Character_Dead):#Renders the scene
     R.EL = RenderL[0]
     StarL = RenderL[1]
-    HitBoxes = RenderL[2]
-    EnemyGroup = RenderL[3]
+    EnemyGroup = RenderL[2]
     screen.fill(white)
     #screen.blit(R.Background,(0,0))
     pygame.display.get_caption()
-    R.E = L.Draw_level(screen, R.El, StarL, P, EnemyGroup) # Draws level
+    R.E = L.Draw_level(screen, R.El, StarL, PlayerGroup[0], EnemyGroup) # Draws level
     x = len(R.E)
     y = len(EnemyGroup)
     print ("Število kvadratov v prvi listi:", x)
     print ("Število kvadratov v drugi listi:", y)
-    #h = len(StarL)
-    #for i in range(0,h):
-    #    screen.blit(StarL[i].image,(StarL[i].x, StarL[i].y))
+    h = len(StarL)
     #if R.Start_Animation == True:
     #    R.Start_Animation = Score_animation(screen)
-    Score = str(P.Score)
-    PS = myfont.render(Score, False, red)
-    screen.blit(PS, [840,0]) # Displays score
+    for i in range(0, len(PlayerGroup)):
+        Score = str(PlayerGroup[i].Score)
+        PS = myfont.render(Score, False, red)
+        screen.blit(PS, [840,PlayerGroup[i].ScoreY]) # Displays score
     #if h <= 1:
     #    PS = myfont.render('Bravo pobrali ste vse možne točke', False, red)
     #    screen.blit(PS, [650,490])
     #    pygame.display.update()
     #    time.sleep(2)
     #    pygame.quit()
-    #P.HitBox(screen)
+    for i in range(0, len(PlayerGroup)):
+        PlayerGroup[i].HitBox(screen)
     F.write(str(LB.El[2].x))
     F.write("\n")
-    P.Camera(LB.El)
-    P.Display_Life(screen, Character_Dead)
-    if P.Orientation == "right": # Display player if his orientation is to the right
-        if R.Zaporedje > R.MejaZaporedja-1: # Restarts the animation
-            R.Zaporedje = 0
-        screen.blit(PlayerImage, (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje])) # Displays player and crops it
-    if P.Orientation == "left": # Display player if his orientation is to the left
-        if R.Zaporedje < 0: # Restarts the animation
-            R.Zaporedje = R.MejaZaporedja - 1
-        screen.blit(pygame.transform.flip(PlayerImage, True, False), (P.CameraPosX, P.y),(PlayerAniList[R.Zaporedje])) # Displays player, flips and crops it
+    for i in range(0, len(PlayerGroup)):
+        PlayerGroup[i].Camera(LB.El)
+    PlayerGroup[0].Display_Life(screen, Character_Dead)
+    for i in range(0, len(PlayerGroup)):
+        if PlayerGroup[i].Orientation == "right": # Display player if his orientation is to the right
+            if PlayerGroup[i].Zaporedje > R.MejaZaporedja-1: # Restarts the animation
+                PlayerGroup[i].Zaporedje = 0
+            screen.blit(PlayerImage, (PlayerGroup[i].CameraPosX, PlayerGroup[i].y),(PlayerAniList[PlayerGroup[i].Zaporedje])) # Displays player and crops it
+        if PlayerGroup[i].Orientation == "left": # Display player if his orientation is to the left
+            if PlayerGroup[i].Zaporedje < 0: # Restarts the animation
+                PlayerGroup[i].Zaporedje = R.MejaZaporedja - 1
+            screen.blit(pygame.transform.flip(PlayerImage, True, False), (PlayerGroup[i].CameraPosX, PlayerGroup[i].y),(PlayerAniList[PlayerGroup[i].Zaporedje])) # Displays player, flips and crops it
     pygame.display.update()
 
 def Score_animation(screen): # Legacy system for displaying the score

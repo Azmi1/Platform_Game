@@ -1,5 +1,15 @@
 Update log
 
+Experimental #2.5 Date: 21.4.2019 12:55
+	Added second player!
+	New features:
+		- two player support
+	Bugs:
+		- Collision is wierd(at the start of the game then gets better)
+		- Enemies get teleported with you to the start
+		- Camera if you go back to the start isn't behaving properly
+		- For the second player if you collide with the side of the block you pass through it
+
 Experimental #2.4 Date: 19.4.2019 14:38
 	Added life system and enemies now deal damage
 	New features:

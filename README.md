@@ -31,7 +31,7 @@ Note: This is my first real game so I am taking my time. And I started proggrami
 - Two player support(More the merrier!) date: Next stable update
 - Some power-ups(Like double jump and more...) date: After the next update
 - New modes(Like Fun mode where you could catapult yourself with blocks) date: unkown
-- World editor tool
+- World editor tool(Will come as a separate client)
 
 If you find any bugs email me: never.saymeme@gmail.com 
 

@@ -17,7 +17,7 @@ class Block(object):
 
 running = True
 
-Block_1 = Block(100, 100, 1000, 200, Block_Image)
+Block_1 = Block(100, 100, 1000, 400, Block_Image)
 
 while running == True:
     Block_1.draw(screen)

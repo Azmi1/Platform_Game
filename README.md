@@ -19,16 +19,19 @@ Note: This is my first real game so I am taking my time. And I started proggrami
 	- First left click the left-upper corner point of where you'll put your block then
 	- Right click the right-down corner and the block should appear!
 	- Shall you do it otherwise wierd things will happen
+- How to go two player:
+	- Press any of directional arrows to join
 	
 ***Features:***
 - You can build blocks
 - Movable camera
+- Two player support(Kinda)
+- Texturable blocks
 - "Infinite" world (It seems like so if you prove me wrong good for you!)
 - There's a 1000 blocks limit need to see how to change it!
 	
 ***Planned features:***
 - Better graphics(as good as I can do them!) date: Not known
-- Two player support(More the merrier!) date: Next stable update
 - Some power-ups(Like double jump and more...) date: After the next update
 - New modes(Like Fun mode where you could catapult yourself with blocks) date: unkown
 - World editor tool(Will come as a separate client)

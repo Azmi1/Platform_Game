@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game", "Platform_Game\Platform_Game.pyproj", "{3DE379AB-0EA2-411B-8D6E-1882E67D0909}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game WE Exp 1.0", "Platform_Game World Edit Client\Experimental\Experimental 1.0\Platform_Game WE Exp 1.0\Platform_Game WE Exp 1.0.pyproj", "{79A92890-45B9-453F-84E0-0530C80B18FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,8 +11,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3DE379AB-0EA2-411B-8D6E-1882E67D0909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DE379AB-0EA2-411B-8D6E-1882E67D0909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A92890-45B9-453F-84E0-0530C80B18FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A92890-45B9-453F-84E0-0530C80B18FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

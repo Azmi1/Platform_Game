@@ -21,10 +21,13 @@ Note: This is my first real game so I am taking my time. And I started proggrami
 	- Shall you do it otherwise wierd things will happen
 - How to go two player:
 	- Press any of directional arrows to join
+- How to spawn enemies:
+	- It's very simple just press middle button on your mouse
 	
 ***Features:***
 - You can build blocks
 - Movable camera
+- Enemies
 - Two player support(Kinda)
 - Texturable blocks
 - "Infinite" world (It seems like so if you prove me wrong good for you!)

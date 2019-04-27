@@ -1,6 +1,6 @@
 Update log
 
-Stable #2.1 Date: 21.4.2019 Time: 22:33
+Stable #2.1 Date: 27.4.2019 Time: 19:42
 	Added world edit client!
 	It is already included into the files of the game at the moment only one save of a level is possible!
 	To change from save mode to building change "save" in R.El, PG.i, StarL, L.EnemyGroup = LB.Load_level_1(screen, "save", P) to "custom"

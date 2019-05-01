@@ -1,5 +1,13 @@
 Update log
 
+Stable #2.2 Date: 5.1.2019 Time: 18:56
+	Updated world edit client to newer version
+	Features:
+		- new World edit version
+	Known bugs:
+		- Collision is wierd
+		- Second player can phase through side of the block
+
 Stable #2.1 Date: 21.4.2019 Time: 22:33
 	Added world edit client!
 	It is already included into the files of the game at the moment only one save of a level is possible!

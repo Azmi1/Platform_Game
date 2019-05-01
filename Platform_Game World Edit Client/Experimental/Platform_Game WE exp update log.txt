@@ -1,5 +1,10 @@
 Platform_Game WE exp update log
 
+Experimental 2.0 date: 30.4.2019 time:16:48
+	Ability to picture the blocks is here
+	new features:
+		- Ability to picture blocks
+
 Experimental 1.0 date: 26.4.2019 time: 22:44
 	Started work on the world editor
 	There's no yet function to load it in engine in next update probably will be included!

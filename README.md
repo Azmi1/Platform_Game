@@ -1,8 +1,6 @@
 # Platform_Game
 It's the game I am working on written in python. Still work in progress!
 
-To launch the game don't click the menu.py because thats work in progress open the Platform_Game! 
-
 In the future I will show you how to make game run better!
 
 If it's saying that the pygame isn't installed type this in cmd: pip install pygame

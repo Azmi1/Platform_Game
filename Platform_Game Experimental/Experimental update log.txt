@@ -1,5 +1,17 @@
 Update log
 
+Experimental #3.0 Date: 11.5.2019 13:49
+	Started on rewamp of the camera system!
+	new features:
+		- Two camera options
+	Bugs:
+		- Collision is half as wierd
+		- Enemies get teleported with you to the start
+		- For the second player if you collide with the side of the block you pass through it
+
+What will experimental 3 be:
+	It will rewamp the camera and hopefully fix bugs and just maybe start of power-up system!
+		
 Experimental #2.5 Date: 21.4.2019 12:55
 	Added second player!
 	New features:

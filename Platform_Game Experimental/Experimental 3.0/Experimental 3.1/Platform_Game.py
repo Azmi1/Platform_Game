@@ -7,19 +7,17 @@ import level as L
 import Pysics as Py
 import Platform_Game as PG
 import Level_Builder as LB
+import Options as OPS
 
 Options = open("Options.txt", "r")
 lines = [line.rstrip('\n') for line in open('Options.txt')]
 
 Wrenk = {}
 
+
 # Creates screen
-for i in range(8, 100):
-    try:
-        Wrenk[i] = lines[3][i]
-    except:
-        i +=100
-height = 980
+width = OPS.width
+height = OPS.height
 screen = pygame.display.set_mode((width, height))
 
 pygame.font.init()
@@ -40,11 +38,11 @@ RenderL=[]
 Running = True
 updates = 0
 t0 = time.clock()
-Approval = False
-Gravity = True
+Approval_FPS = OPS.Approval_FPS
+Gravity = OPS.Gravity
 Character_Dead = False
 PlayerTwoJoined = False
-Approval_SpecialDraw = False
+Approval_SpecialDraw = OPS.Approval_SpecialDraw
 
 #Load all outside images
 image = pygame.image.load("images/player.png").convert_alpha()
@@ -116,7 +114,7 @@ def main():
         T2 = time.clock()
         T = T2-PG.t0
         print("Toliko casa minilo: ", T)
-        if T > 10 and PG.Approval == True:  # System to measure how much loops happened in 10 seconds
+        if T > 10 and PG.Approval_FPS == True:  # System to measure how much loops happened in 10 seconds
             PS = myfont.render('Updates per 10 seconds:', False, red)
             PG.updates = str(PG.updates)
             PS1 = myfont.render(PG.updates, False, red)

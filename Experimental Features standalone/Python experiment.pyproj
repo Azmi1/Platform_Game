@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ded94a53-4eac-4441-b30b-bc735a007279</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Python_experiment.py</StartupFile>
+    <StartupFile>Moving_camera.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Moving camera.py">
+    <Compile Include="Moving_camera.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Python_experiment.py" />

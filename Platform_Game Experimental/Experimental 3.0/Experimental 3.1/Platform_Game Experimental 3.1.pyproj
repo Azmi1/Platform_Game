@@ -26,6 +26,9 @@
     <Compile Include="level.py" />
     <Compile Include="Level_Builder.py" />
     <Compile Include="Menu.py" />
+    <Compile Include="Options.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Platform_Game.py" />
     <Compile Include="Pysics Fail.py" />
     <Compile Include="Pysics.py" />

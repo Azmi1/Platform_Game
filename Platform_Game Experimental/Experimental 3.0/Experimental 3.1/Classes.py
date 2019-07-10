@@ -15,6 +15,7 @@ class camera(object):
     def getpos(self):
         self.x = self.player.CameraX
 
+
 class player(pygame.sprite.Sprite): #Defines player that you play
     def __init__(self, Approval_SpecialDraw): #Setups the player
         #pygame.sprite.Sprite.__init__(self)
@@ -42,20 +43,15 @@ class player(pygame.sprite.Sprite): #Defines player that you play
         surface = screen
         key = pygame.key.get_pressed() # Registers key press
         dist = 3
-        print(self.y)
         if self.Jump == True: # Checks if you can jump
             if key[pygame.K_w]:
                 self.MoveY = -5
                 self.Moving = True
                 self.Jumping = True
                 self.Jump = False
-        if self.MoveY < 0  and self.MoveY != 0: # this check if the variable is smaller 0 if it is it starts smoothing to 0
+        if self.MoveY < 0: # this check if the variable is smaller 0 if it is it starts smoothing to 0
                 self.MoveY += 0.15
                 self.Moving = True
-                if self.MoveY > -0.05:
-                    self.MoveY = 0
-        elif self.MoveY > - 0.05 and self.MoveY != 0:
-            self.MoveY = 0
         else:
                 self.Moving = False
                 self.Jumping = False
@@ -162,13 +158,9 @@ class player_two(pygame.sprite.Sprite): #Defines player that you play
                 self.Moving = True
                 self.Jumping = True
                 self.Jump = False
-        if self.MoveY < 0  and self.MoveY != 0: # this check if the variable is smaller 0 if it is it starts smoothing to 0
+        if self.MoveY < 0: # this check if the variable is smaller 0 if it is it starts smoothing to 0
                 self.MoveY += 0.15
                 self.Moving = True
-                if self.MoveY > -0.05:
-                    self.MoveY = 0
-        elif self.MoveY > - 0.05 and self.MoveY != 0:
-            self.MoveY = 0
         else:
                 self.Moving = False
                 self.Jumping = False

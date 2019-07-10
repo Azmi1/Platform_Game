@@ -1,7 +1,17 @@
 Update log
 
-Experimental #3.1 Date: ?
-	Not ready yet...
+Experimental #3.1 Date: 10.7.2019 10:54
+	Half revamped camera has arrived!
+	new featuers:
+		- Can change the resolution
+		- The world readjust itself to former glory
+	Vaulted features:
+		- Two camera options
+	Fixed Bugs:
+		- Enemies get teleported with you to the start
+	Bugs:
+		- Collision is quarter as wierd
+		- Two player support doesn't work anymore
 
 Experimental #3.0 Date: 11.5.2019 13:49
 	Started on rewamp of the camera system!

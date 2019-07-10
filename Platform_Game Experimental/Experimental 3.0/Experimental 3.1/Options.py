@@ -2,9 +2,10 @@
 
 #Screen:
 width = 1680
-height = 980
+height = 840
 
 #Gameplay:
 Approval_FPS =  False
 Gravity = True
-Approval_SpecialDraw = False
+Approval_SpecialDraw = False # Doesn't work correctly
+Mode = "save" # There are two modes 'custom' and 'save'

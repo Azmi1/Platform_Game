@@ -30,7 +30,7 @@ class Enemy(object): # Defines enemy
         screen.blit(self.image,(self.x, self.y))
 
     def display(self, screen, P): # It displays image
-        self.x += P.CameraX
+        self.x += P.x
         screen.blit(self.image,(self.x, self.y))
 
 class Points(object): # Legacy system for points

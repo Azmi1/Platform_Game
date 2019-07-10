@@ -11,7 +11,7 @@ import Level_Builder as LB
 # Creates screen
 width = 1680
 height = 980
-screen = pygame.display.set_mode((width, height))
+screen = pygame.display.set_mode((width, height), pygame.RESIZABLE)
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)

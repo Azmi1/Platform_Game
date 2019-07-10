@@ -9,16 +9,10 @@ import Platform_Game as PG
 import Level_Builder as LB
 import Options as OPS
 
-Options = open("Options.txt", "r")
-lines = [line.rstrip('\n') for line in open('Options.txt')]
-
-Wrenk = {}
-
-
 # Creates screen
-width = OPS.width
-height = OPS.height
-screen = pygame.display.set_mode((width, height))
+width = 1680
+height = 980
+screen = pygame.display.set_mode((OPS.width, OPS.height))
 
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
@@ -38,11 +32,14 @@ RenderL=[]
 Running = True
 updates = 0
 t0 = time.clock()
-Approval_FPS = OPS.Approval_FPS
+Approval = False
 Gravity = OPS.Gravity
 Character_Dead = False
 PlayerTwoJoined = False
 Approval_SpecialDraw = OPS.Approval_SpecialDraw
+Screen_DiffX = 0
+Screen_DiffY = 0
+Screen_Diff = []
 
 #Load all outside images
 image = pygame.image.load("images/player.png").convert_alpha()
@@ -50,6 +47,17 @@ icon = pygame.image.load("images/player.ico").convert_alpha()
 star = pygame.image.load("images/LoGo.png").convert_alpha()
 Animation_Image = pygame.image.load("images/explosion.hasgraphics.png").convert_alpha()
 #Background = pygame.image.load("images/background.jpg").convert_alpha()
+
+def Set_Up():
+    if OPS.width != 1680:
+        PG.Screen_DiffX = 1680 - OPS.width
+        P.CameraPosX = OPS.width/2
+    if OPS.height!= 980:
+        PG.Screen_DiffY = 980 - OPS.height
+        P.y -= PG.Screen_DiffY
+    PG.Screen_Diff.append(PG.Screen_DiffX)
+    PG.Screen_Diff.append(PG.Screen_DiffY)
+    main()
 
 #Main game loop
 def main(): 
@@ -74,9 +82,9 @@ def main():
             Py.Borders(PlayerGroup[i], screen) # Used if players goes under screen
             PG.HitBox = PG.PlayerGroup[i].HitBox(screen)
         if PG.i == 1:
-            R.El, PG.i, StarL, L.EnemyGroup = LB.Load_level_1(screen, "custom", P, Approval_SpecialDraw)
+            R.El, PG.i, StarL, L.EnemyGroup = LB.Load_level_1(screen, OPS.Mode, P, Approval_SpecialDraw, PG.Screen_Diff)
             print ("Level loading/creating")
-        if PrviZagon == 0:
+        if PG.PrviZagon == 0:
             PG.RenderL.append(R.El)
             PG.RenderL.append(StarL)
             PG.RenderL.append(L.EnemyGroup)
@@ -88,6 +96,8 @@ def main():
         #        print("Tvoj Score:", P.Score)
         #        R.Start_Animation = True
         #        StarL.remove(StarL[i])
+        if PG.PrviZagon == 0:
+            PG.PrviZagon = 1
         i=0
         j = 0
         x = len(R.E)
@@ -114,7 +124,7 @@ def main():
         T2 = time.clock()
         T = T2-PG.t0
         print("Toliko casa minilo: ", T)
-        if T > 10 and PG.Approval_FPS == True:  # System to measure how much loops happened in 10 seconds
+        if T > 10 and PG.Approval == True:  # System to measure how much loops happened in 10 seconds
             PS = myfont.render('Updates per 10 seconds:', False, red)
             PG.updates = str(PG.updates)
             PS1 = myfont.render(PG.updates, False, red)
@@ -142,4 +152,4 @@ def Close_Game():
     sys.exit(0)
 
 #Calls the game loop
-main()
+Set_Up()

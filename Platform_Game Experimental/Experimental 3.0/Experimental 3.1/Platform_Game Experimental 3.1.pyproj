@@ -26,14 +26,15 @@
     <Compile Include="level.py" />
     <Compile Include="Level_Builder.py" />
     <Compile Include="Menu.py" />
-    <Compile Include="Options.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Options.py" />
     <Compile Include="Platform_Game.py" />
-    <Compile Include="Pysics Fail.py" />
+    <Compile Include="Platform_Game_WE.py" />
     <Compile Include="Pysics.py" />
     <Compile Include="Renderer.py" />
+    <Compile Include="Save.py" />
     <Compile Include="Second_Classes.py" />
+    <Compile Include="Tab.py" />
+    <Compile Include="Test.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

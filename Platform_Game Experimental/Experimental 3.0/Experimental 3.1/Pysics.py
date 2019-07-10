@@ -95,3 +95,4 @@ def Borders(self,screen): # Looks if the
         self.x = 0
     elif self.x < 0:
         self.x = 1680
+

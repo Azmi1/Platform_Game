@@ -1,4 +1,5 @@
 import  pygame, Level_Builder, Second_Classes, random, time
+import Options as OPS
 
 L = Level_Builder
 SC = Second_Classes
@@ -33,28 +34,27 @@ L.StarL = []
 L.Cant_Enemy = False
 L.T1 = time.clock()
 
-def Load_level_1(screen, choice, P, Approval_SpecialDraw): #Creates the level
-    if choice == "normal":
+def Load_level_1(screen, choice, P, Approval_SpecialDraw, Screen_Diff): #Creates the level
+   L.Screen_DiffX = Screen_Diff[0]
+   L.Screen_DiffY = Screen_Diff[1]
+   if choice == "normal":
         E1 = level(20, 948, 100, 20, black)
         El = [E1]
         L.i = 0
         return El, L.i
 
-    elif choice == "save":
+   elif choice == "save":
         import Save
         L.El, L.EnemyGroup = Save.Save(screen)
         L.i = 2
         return L.El, L.i, L.StarL, L.EnemyGroup
 
-    elif choice == "custom":
+   elif choice == "custom":
         if L.w == 0:
-            Trump_Wall = level(0, 0, 0, 40, 1680, black, False, True, Block_Image)
-            Origin_Block = level(0, -1, 0, 1, 1, white, True)
-            L.Done = level(0, 1480, 940, 200, 40, green, True)
-            if Approval_SpecialDraw == True:
-                E1 = level(0, 40, 948, 100, 20, black, True)
-            else:
-                E1 = level(0,800, 948, 100, 20, black, True)
+            Trump_Wall = level(0, 0-Screen_DiffX, 0-Screen_DiffY, 40, 1680, black, False, True, Block_Image)
+            Origin_Block = level(0, -1-Screen_DiffX, 0-Screen_DiffY, 1, 1, white, True)
+            L.Done = level(0, 1480-Screen_DiffX, 940-Screen_DiffY, 200, 40, green, True)
+            E1 = level(0, OPS.width/2, 948-Screen_DiffY, 100, 20, black, True)
             L.El.append(L.Done)
             L.El.append(E1)
             L.El.append(Origin_Block)

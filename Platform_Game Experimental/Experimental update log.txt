@@ -1,5 +1,16 @@
 Update log
 
+Experimental #3.2 Date: 13.7.2019 22:53
+	First Power-Up 'Double Jump' has arrived!
+	new featuers:
+		- Intruduced Power-Ups
+		- Intruduced Power-Up 'Double Jump'
+	Fixed Bugs:
+		- Enemies get teleported with you to the start
+	Bugs:
+		- Collision is quarter as wierd
+		- Two player support doesn't work anymore
+
 Experimental #3.1 Date: 10.7.2019 10:54
 	Half revamped camera has arrived!
 	new featuers:

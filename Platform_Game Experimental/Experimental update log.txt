@@ -1,8 +1,15 @@
 Update log
+Experimental #3.4 Date: 13.9.2019 16:12
+	Going to stable!
+	new features:
+		- Able to give rarity to Power_Ups
+	Bugs:
+		- Collision is quarter as wierd
+		- Two player support doesn't work anymore
 
 Experimental #3.3 Date: 13.8.2019 20:22
 	Two power-ups have arrived!
-	new featuers:
+	new features:
 		- Intruduced Power-Up 'Boost Jump'
 		- Intruduced Power-Up 'Speed'
 	Bugs:
@@ -15,7 +22,7 @@ Experimental #3.3 Date: 13.8.2019 20:22
 
 Experimental #3.2 Date: 13.7.2019 22:53
 	First Power-Up 'Double Jump' has arrived!
-	new featuers:
+	new features:
 		- Intruduced Power-Ups
 		- Intruduced Power-Up 'Double Jump'
 	Bugs:

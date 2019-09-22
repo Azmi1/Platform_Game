@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Stable 3.0", "Platform_Game Stable 3.0.pyproj", "{3DE379AB-0EA2-411B-8D6E-1882E67D0909}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 3.2", "Platform_Game Experimental 3.2.pyproj", "{3DE379AB-0EA2-411B-8D6E-1882E67D0909}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

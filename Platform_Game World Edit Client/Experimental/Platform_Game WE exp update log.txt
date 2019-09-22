@@ -1,5 +1,10 @@
 Platform_Game WE exp update log
 
+Experimental 3.0 date: 22.9.2019 time:22:09
+	Power-Ups are here
+	new features:
+		- Added ability to place power-ups
+
 Experimental 2.0 date: 30.4.2019 time:16:48
 	Ability to picture the blocks is here
 	new features:

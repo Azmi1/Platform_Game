@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ded94a53-4eac-4441-b30b-bc735a007279</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Moving_camera.py</StartupFile>
+    <StartupFile>Destructable_Blocks.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,9 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Block Texturing.py" />
+    <Compile Include="Destructable_Blocks.py" />
+    <Compile Include="Indexing images.py" />
     <Compile Include="Moving_camera.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Moving_camera_V2.py" />
     <Compile Include="Python_experiment.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

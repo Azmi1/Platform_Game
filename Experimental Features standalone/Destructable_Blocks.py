@@ -50,7 +50,7 @@ class Block(object):
             self.Blockling[i] = Blocklings(x, y, self.width/self.OGaccuracy, Bheight)
             self.BlocklingsList.append(self.Blockling[i])
             DB.Xi += 1
-            
+
     def draw(self, screen):
         if self.DrawMode == "Combined":
             pygame.draw.rect(screen, [255,255,255],[self.x,self.y, self.width, self.height])
@@ -68,14 +68,14 @@ class Blocklings(object):
         DB.ColN += 1
         if DB.ColN == 6:
             DB.ColN = 0
-            
+
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.color,[self.x,self.y, self.width, self.height])
-        
+
 running = True
 
-Block_1 = Block(0, 0, 500, 500, 10)
+Block_1 = Block(0, 0, 1000, 500, 100)
 
 Aiming = False
 BulletList = []
@@ -105,13 +105,13 @@ def Line(screen):
     if DB.y1 > DB.y + DB.LineOffset:
         DB.y1 = DB.y + DB.LineOffset
     elif DB.y1 < DB.y - DB.LineOffset:
-        DB.y1 = DB.y - DB.LineOffset 
+        DB.y1 = DB.y - DB.LineOffset
     pygame.draw.line(screen, cyan, [DB.x, DB.y], [DB.x1, DB.y1], 2)
-    print("Shhh") 
+    print("Shhh")
 
 def Release():
-    print("Pew")
-    k = abs((DB.y1-DB.y)/(DB.x1-DB.x))
+    print("Pew**(22/7)")
+    k = (DB.y1-DB.y)/(DB.x1-DB.x)
     if DB.x1 > DB.x:
         DB.OrientX = 1
     elif DB.x1 < DB.x:
@@ -124,7 +124,7 @@ def Release():
     DB.BulletL[DB.BulletC] = Bullet(k, DB.OrientX, DB.OrientY)
     DB.BulletList.append(DB.BulletL[DB.BulletC])
     DB.BulletC += 1
-    
+
 
 class Bullet(object):
     def __init__(self, k, OrientX, OrientY):
@@ -132,21 +132,28 @@ class Bullet(object):
         self.y = DB.y
         self.n = DB.y
         self.k = k
-        self.speed = 10
+        self.speed = 10* OrientX
+        self.MoveY = -1*(((self.k*self.x +self.n))-((self.k*(self.x+self.speed) +self.n)))
         self.OrientX = OrientX
         self.OrientY = OrientY
-
-    def move(self):
-        self.x += self.speed*self.OrientX
         print("x: ", str(self.x))
         print("y: ", str(self.y))
+        print("MoveY: ", str(self.MoveY))
         print("speed: ", str(self.speed))
         print("Orient: ", str(self.OrientX))
-        self.y = self.k*self.x+self.n
-        
+
+    def move(self):
+        self.x += self.speed
+        self.y += self.MoveY
+        print("x: ", str(self.x))
+        print("y: ", str(self.y))
+        print("MoveY: ", str(self.MoveY))
+        print("speed: ", str(self.speed))
+        print("Orient: ", str(self.OrientX))
+
     def display(self, screen):
         pygame.draw.rect(screen, black,[self.x,self.y, 10, 10])
-        
+
 while running == True:
     screen.fill([128,128, 128])
     Block_1.draw(screen)

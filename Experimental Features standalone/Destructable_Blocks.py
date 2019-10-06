@@ -1,12 +1,11 @@
 import pygame
 import Destructable_Blocks as DB
 import random
+import sys
 
 random.seed()
 
 screen = pygame.display.set_mode((1280,1280))
-
-Block_Image = pygame.image.load("Images/Block.jpg")
 
 black = [0, 0, 0]
 white = [255, 255, 255]
@@ -33,6 +32,7 @@ class Block(object):
         self.BlocklingsList = []
         self.Blaster()
         self.DrawMode = "Seperate"
+        self.cert = pygame.draw.rect(screen, [255,255,255],[self.x,self.y, self.width, self.height])
 
     def Blaster(self):
         DB.Xi = 0
@@ -58,6 +58,13 @@ class Block(object):
             for i in range(0, len(self.BlocklingsList)):
                 self.BlocklingsList[i].draw(screen)
 
+    def Destroy_Blocklings(self, Bullet):
+        for Blockling in self.BlocklingsList:
+            if Bullet.cert.colliderect(Blockling.cert):
+                self.BlocklingsList.remove(Blockling)
+                Bullet.Life = True
+
+
 class Blocklings(object):
     def __init__(self, x, y, width, height):
         self.x = x
@@ -68,6 +75,7 @@ class Blocklings(object):
         DB.ColN += 1
         if DB.ColN == 6:
             DB.ColN = 0
+        self.cert = pygame.draw.rect(screen, self.color,[self.x,self.y, self.width, self.height])
 
 
     def draw(self, screen):
@@ -77,6 +85,7 @@ running = True
 
 Block_1 = Block(0, 0, 1000, 500, 100)
 
+BlockList = [Block_1]
 Aiming = False
 BulletList = []
 BulletL = {}
@@ -109,9 +118,8 @@ def Line(screen):
     pygame.draw.line(screen, cyan, [DB.x, DB.y], [DB.x1, DB.y1], 2)
     print("Shhh")
 
-def Release():
+def Release(screen):
     print("Pew**(22/7)")
-    k = (DB.y1-DB.y)/(DB.x1-DB.x)
     if DB.x1 > DB.x:
         DB.OrientX = 1
     elif DB.x1 < DB.x:
@@ -120,55 +128,80 @@ def Release():
         DB.OrientY = -1
     elif DB.y1 < DB.y:
         DB.OrientY = 1
+    if DB.x1-DB.x != 0:
+        k = (DB.y1-DB.y)/(DB.x1-DB.x)
+    else:
+        k = 0
     DB.Aiming = False
-    DB.BulletL[DB.BulletC] = Bullet(k, DB.OrientX, DB.OrientY)
+    DB.BulletL[DB.BulletC] = Bullet(k, DB.OrientX, DB.OrientY, screen)
     DB.BulletList.append(DB.BulletL[DB.BulletC])
     DB.BulletC += 1
 
 
 class Bullet(object):
-    def __init__(self, k, OrientX, OrientY):
+    def __init__(self, k, OrientX, OrientY, screen):
         self.x = DB.x
         self.y = DB.y
         self.n = DB.y
         self.k = k
-        self.speed = 10* OrientX
+        self.Life = True
+        self.speed = 5* OrientX
         self.MoveY = -1*(((self.k*self.x +self.n))-((self.k*(self.x+self.speed) +self.n)))
+        if self.k == 0:
+            self.speed = 0
+            self.MoveY = self.n
         self.OrientX = OrientX
         self.OrientY = OrientY
         print("x: ", str(self.x))
         print("y: ", str(self.y))
         print("MoveY: ", str(self.MoveY))
-        print("speed: ", str(self.speed))
+        print("speed: ", str(abs(self.speed)))
         print("Orient: ", str(self.OrientX))
+        self.cert = pygame.draw.rect(screen, black,[self.x,self.y, 10, 10])
 
     def move(self):
         self.x += self.speed
         self.y += self.MoveY
-        print("x: ", str(self.x))
-        print("y: ", str(self.y))
+        #print("x: ", str(self.x))
+        #print("y: ", str(self.y))
         print("MoveY: ", str(self.MoveY))
-        print("speed: ", str(self.speed))
-        print("Orient: ", str(self.OrientX))
+        #print("speed: ", str(self.speed))
+        #print("Orient: ", str(self.OrientX))
+
+    def hit(self, BlockGroup, BulletGroup):
+        for i in range(0, len(BlockGroup)):
+            if self.cert.colliderect(BlockGroup[i].cert):
+                BlockGroup[i].Destroy_Blocklings(self)
+                print("Destruction!")
+                i += 1
+                return i
 
     def display(self, screen):
-        pygame.draw.rect(screen, black,[self.x,self.y, 10, 10])
+        self.cert = pygame.draw.rect(screen, black,[self.x,self.y, 10, 10])
 
 while running == True:
     screen.fill([128,128, 128])
-    Block_1.draw(screen)
+    if BlockList != []:
+        for Blocks in BlockList:
+            Blocks.draw(screen)
     if pygame.mouse.get_pressed()[0] == True and DB.Aiming == False:
         Gun()
     elif pygame.mouse.get_pressed()[0] == True and DB.Aiming == True:
         Line(screen)
     elif pygame.mouse.get_pressed()[0] == False and DB.Aiming == True:
-        Release()
+        Release(screen)
     if BulletList != []:
         for i in range(0, len(BulletList)):
             BulletList[i].move()
-            BulletList[i].display(screen)
+            BulletList[i].hit(BlockList, BulletList)
+            if BulletList[i].Life == True:
+                BulletList[i].display(screen)
+            else:
+                BulletList.remove(BulletList[i])
+                break
     pygame.display.update()
     for event in pygame.event.get():
             if event.type == pygame.QUIT: #For ending the loop
                 pygame.quit()
                 running = False
+                sys.exit()

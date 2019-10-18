@@ -1,4 +1,4 @@
-import pygame
+import pygame, math
 import Destructable_Blocks as DB
 import random
 import sys
@@ -94,7 +94,7 @@ x = 0
 y = 0
 x1 = 0
 y1 = 0
-LineOffset = 1000
+LineOffset = 75
 OrientX = 0
 OrientY = 0
 
@@ -115,7 +115,10 @@ def Line(screen):
         DB.y1 = DB.y + DB.LineOffset
     elif DB.y1 < DB.y - DB.LineOffset:
         DB.y1 = DB.y - DB.LineOffset
-    pygame.draw.line(screen, cyan, [DB.x, DB.y], [DB.x1, DB.y1], 2)
+    dy = DB.y1 - DB.y
+    dx = DB.x1 - DB.x
+    DB.angle = math.atan2(dy, dx)
+    pygame.draw.line(screen, cyan, [DB.x, DB.y], [DB.x+DB.LineOffset*round(math.cos(DB.angle),2), DB.y+DB.LineOffset*round(math.sin(DB.angle),2)], 2)
     print("Shhh")
 
 def Release(screen):
@@ -133,38 +136,33 @@ def Release(screen):
     else:
         k = 0
     DB.Aiming = False
-    DB.BulletL[DB.BulletC] = Bullet(k, DB.OrientX, DB.OrientY, screen)
+    DB.BulletL[DB.BulletC] = Bullet(DB.angle, DB.OrientX, DB.OrientY, screen)
     DB.BulletList.append(DB.BulletL[DB.BulletC])
     DB.BulletC += 1
 
 
 class Bullet(object):
-    def __init__(self, k, OrientX, OrientY, screen):
+    def __init__(self, angle, OrientX, OrientY, screen):
         self.x = DB.x
         self.y = DB.y
         self.n = DB.y
-        self.k = k
         self.Life = True
-        self.speed = 5* OrientX
-        self.MoveY = -1*(((self.k*self.x +self.n))-((self.k*(self.x+self.speed) +self.n)))
-        if self.k == 0:
-            self.speed = 0
-            self.MoveY = self.n
+        self.speed = 10
         self.OrientX = OrientX
         self.OrientY = OrientY
+        self.cos = round(math.cos(angle),2)
+        self.sin = round(math.sin(angle),2)
         print("x: ", str(self.x))
         print("y: ", str(self.y))
-        print("MoveY: ", str(self.MoveY))
         print("speed: ", str(abs(self.speed)))
         print("Orient: ", str(self.OrientX))
         self.cert = pygame.draw.rect(screen, black,[self.x,self.y, 10, 10])
 
     def move(self):
-        self.x += self.speed
-        self.y += self.MoveY
+        self.x += self.speed*self.cos
+        self.y += self.speed*self.sin
         #print("x: ", str(self.x))
         #print("y: ", str(self.y))
-        print("MoveY: ", str(self.MoveY))
         #print("speed: ", str(self.speed))
         #print("Orient: ", str(self.OrientX))
 

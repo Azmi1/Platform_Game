@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>3de379ab-0ea2-411b-8d6e-1882e67d0909</ProjectGuid>
+    <ProjectGuid>{14cf6fa0-156d-4272-a5de-8ae9bc395bf1}</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
     <StartupFile>Platform_Game.py</StartupFile>

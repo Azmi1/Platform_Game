@@ -1,7 +1,7 @@
 Update log
 
 What will experimental 4 be:
-	It will intruduce basic AI for enemies and maybe even custom pathing for them!
+	It will intruduce either basic AI for enemies and maybe even custom pathing for them or new rendering system!
 
 Experimental #3.4 Date: 13.9.2019 16:12
 	Going to stable!

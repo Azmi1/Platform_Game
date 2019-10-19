@@ -7,6 +7,42 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game WE Exp 1.0", 
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python experiment", "Experimental Features standalone\Python experiment.pyproj", "{DED94A53-4EAC-4441-B30B-BC735A007279}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experimental Features", "Experimental Features", "{6250D7ED-1E07-40D0-8250-A2E5A33C6C6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WE", "WE", "{0FB062DF-CB60-4FDF-BBF4-8A676031ADB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform_Game Experimental", "Platform_Game Experimental", "{1EBA20EF-9DC2-42E0-A621-E6A4C5D64706}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experimental 1.0", "Experimental 1.0", "{76B542E0-E338-4117-AF4B-A6682820E193}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 1.0", "Platform_Game Experimental\Experimental 1.0\Platform_Game Experimental 1.0.pyproj", "{3DE379AB-0EA2-411B-8D6E-1882E67D0909}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experimental 2.0", "Experimental 2.0", "{84C15F91-F459-4619-AA88-E9553852CF7D}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 2.2", "Platform_Game Experimental\Experimental 2.0\Experimental 2.2\Platform_Game Experimental 2.2.pyproj", "{4BA5C1F8-BA27-47A4-8667-C104469F9741}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 2.3", "Platform_Game Experimental\Experimental 2.0\Experimental 2.3\Platform_Game Experimental 2.3.pyproj", "{B60EACE8-EB01-4A5C-9E60-2E6E65FCBFCB}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 2.4", "Platform_Game Experimental\Experimental 2.0\Experimental 2.4\Platform_Game Experimental 2.4.pyproj", "{14CF6FA0-156D-4272-A5DE-8AE9BC395BF1}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 2.5", "Platform_Game Experimental\Experimental 2.0\Experimental 2.5\Platform_Game Experimental 2.5.pyproj", "{9790F571-D15D-4135-B3A5-02136D1E09B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experimental 3.0", "Experimental 3.0", "{011E451A-76BB-427B-941B-4CDF4649AD69}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 3.0", "Platform_Game Experimental\Experimental 3.0\Experimental 3.0\Platform_Game Experimental 3.0.pyproj", "{DCA56DCF-1F90-4636-8EA6-4C74CDE7E47A}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 3.1", "Platform_Game Experimental\Experimental 3.0\Experimental 3.1\Platform_Game Experimental 3.1.pyproj", "{531B7DFD-613F-4DB2-96C6-6E3342AABA79}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 3.2", "Platform_Game Experimental\Experimental 3.0\Experimental 3.2\Platform_Game Experimental 3.2.pyproj", "{4C053D30-DE1C-4956-BD6A-7F65F4002CA1}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 3.3", "Platform_Game Experimental\Experimental 3.0\Experimental 3.3\Platform_Game Experimental 3.3.pyproj", "{A37A811A-1318-46F2-9CB4-93CABDF558D2}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 3.4", "Platform_Game Experimental\Experimental 3.0\Experimental 3.4\Platform_Game Experimental 3.4.pyproj", "{A12C45E0-4E0B-4621-8CF6-D6B78673243F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experimental 4.0", "Experimental 4.0", "{F3521158-5646-485E-BBD2-71B2DBA13FF5}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Platform_Game Experimental 4.0", "Platform_Game Experimental\Experimental 4.0\Experimental 4.0\Platform_Game Experimental 4.0.pyproj", "{F76D73D7-3BAF-4C08-BB52-0B9CB2ECE20E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,9 +53,50 @@ Global
 		{79A92890-45B9-453F-84E0-0530C80B18FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DED94A53-4EAC-4441-B30B-BC735A007279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DED94A53-4EAC-4441-B30B-BC735A007279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE379AB-0EA2-411B-8D6E-1882E67D0909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE379AB-0EA2-411B-8D6E-1882E67D0909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA5C1F8-BA27-47A4-8667-C104469F9741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA5C1F8-BA27-47A4-8667-C104469F9741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60EACE8-EB01-4A5C-9E60-2E6E65FCBFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60EACE8-EB01-4A5C-9E60-2E6E65FCBFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14CF6FA0-156D-4272-A5DE-8AE9BC395BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CF6FA0-156D-4272-A5DE-8AE9BC395BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9790F571-D15D-4135-B3A5-02136D1E09B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9790F571-D15D-4135-B3A5-02136D1E09B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA56DCF-1F90-4636-8EA6-4C74CDE7E47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA56DCF-1F90-4636-8EA6-4C74CDE7E47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531B7DFD-613F-4DB2-96C6-6E3342AABA79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531B7DFD-613F-4DB2-96C6-6E3342AABA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C053D30-DE1C-4956-BD6A-7F65F4002CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C053D30-DE1C-4956-BD6A-7F65F4002CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37A811A-1318-46F2-9CB4-93CABDF558D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37A811A-1318-46F2-9CB4-93CABDF558D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12C45E0-4E0B-4621-8CF6-D6B78673243F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12C45E0-4E0B-4621-8CF6-D6B78673243F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76D73D7-3BAF-4C08-BB52-0B9CB2ECE20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76D73D7-3BAF-4C08-BB52-0B9CB2ECE20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79A92890-45B9-453F-84E0-0530C80B18FF} = {0FB062DF-CB60-4FDF-BBF4-8A676031ADB5}
+		{DED94A53-4EAC-4441-B30B-BC735A007279} = {6250D7ED-1E07-40D0-8250-A2E5A33C6C6D}
+		{76B542E0-E338-4117-AF4B-A6682820E193} = {1EBA20EF-9DC2-42E0-A621-E6A4C5D64706}
+		{3DE379AB-0EA2-411B-8D6E-1882E67D0909} = {76B542E0-E338-4117-AF4B-A6682820E193}
+		{84C15F91-F459-4619-AA88-E9553852CF7D} = {1EBA20EF-9DC2-42E0-A621-E6A4C5D64706}
+		{4BA5C1F8-BA27-47A4-8667-C104469F9741} = {84C15F91-F459-4619-AA88-E9553852CF7D}
+		{B60EACE8-EB01-4A5C-9E60-2E6E65FCBFCB} = {84C15F91-F459-4619-AA88-E9553852CF7D}
+		{14CF6FA0-156D-4272-A5DE-8AE9BC395BF1} = {84C15F91-F459-4619-AA88-E9553852CF7D}
+		{9790F571-D15D-4135-B3A5-02136D1E09B1} = {84C15F91-F459-4619-AA88-E9553852CF7D}
+		{011E451A-76BB-427B-941B-4CDF4649AD69} = {1EBA20EF-9DC2-42E0-A621-E6A4C5D64706}
+		{DCA56DCF-1F90-4636-8EA6-4C74CDE7E47A} = {011E451A-76BB-427B-941B-4CDF4649AD69}
+		{531B7DFD-613F-4DB2-96C6-6E3342AABA79} = {011E451A-76BB-427B-941B-4CDF4649AD69}
+		{4C053D30-DE1C-4956-BD6A-7F65F4002CA1} = {011E451A-76BB-427B-941B-4CDF4649AD69}
+		{A37A811A-1318-46F2-9CB4-93CABDF558D2} = {011E451A-76BB-427B-941B-4CDF4649AD69}
+		{A12C45E0-4E0B-4621-8CF6-D6B78673243F} = {011E451A-76BB-427B-941B-4CDF4649AD69}
+		{F3521158-5646-485E-BBD2-71B2DBA13FF5} = {1EBA20EF-9DC2-42E0-A621-E6A4C5D64706}
+		{F76D73D7-3BAF-4C08-BB52-0B9CB2ECE20E} = {F3521158-5646-485E-BBD2-71B2DBA13FF5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB6B034B-1959-4800-AE7C-ACD22F7C33BE}

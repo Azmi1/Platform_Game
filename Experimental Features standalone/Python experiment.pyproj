@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ded94a53-4eac-4441-b30b-bc735a007279</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Destructable_Blocks.py</StartupFile>
+    <StartupFile>New_Renderer.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Block Texturing.py" />
+    <Compile Include="New_Renderer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Destructable_Blocks.py" />
     <Compile Include="Indexing images.py" />
     <Compile Include="Moving_camera.py">

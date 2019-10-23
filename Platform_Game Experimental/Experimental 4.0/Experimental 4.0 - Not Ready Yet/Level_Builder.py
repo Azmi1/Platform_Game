@@ -137,11 +137,15 @@ class level(SC.Block): # Blocks
         self.height = height
         self.color = color
         self.CanCanJumpReg = CanJumpReg
-    def draw(self,screen, P): # Draws the blocks
-        self.cert = self.create(screen, self.x + P.x, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
-    def Special_draw(self,screen): # Draws the blocks in a special way... ;)
+    def draw(self,screen, PosX): # Draws the blocks
         self.cert = self.create(screen, self.x, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
+        self.x += PosX
+        pygame.draw.rect(screen, black,[self.x, self.y, self.width, self.height])
+        self.x -= PosX
 
+    def Special_draw(self,screen, PosX): # Draws the blocks in a special way... ;)
+        self.cert = self.create(screen, self.x, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
+        pygame.draw.rect(screen, black,[self.x + PosX , self.y, self.width, self.height])
 class star(object): # Old point system
     def __init__(self, screen):
         self.x = random.randint(10,1670)

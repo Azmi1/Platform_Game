@@ -24,29 +24,23 @@ BlockGroup = [Block_1, Block_2, Block_3, Block_4]
 
 running = True
 
-mode = 0
+ScreenX = 0
 
 PosX = 0
 PosY = 0
 
-def Get_Screen(mode):
-    NR.PosX = 1680*mode
+def Get_Screen(ScreenX):
+    NR.PosX = ScreenX
 
 while NR.running == True:
     screen.fill([0, 0, 0])
     key = pygame.key.get_pressed()
-    if key[pygame.K_1]:
-        NR.mode = 0
-    if key[pygame.K_2]:
-        NR.mode = 1
-    if key[pygame.K_3]:
-        NR.mode = 2
-    if key[pygame.K_4]:
-        NR.mode = 3
-    Get_Screen(NR.mode)
-    NR.mode+=1
-    if NR.mode == 4:
-        NR.mode = 0
+    if key[pygame.K_LEFT]:
+        NR.ScreenX += 5
+    elif key[pygame.K_RIGHT]:
+        NR.ScreenX -= 5
+
+    Get_Screen(NR.ScreenX)
     print(NR.PosX)
     for block in BlockGroup:
         if block.x + block.width >= NR.PosX and block.x <= NR.PosX+1680:

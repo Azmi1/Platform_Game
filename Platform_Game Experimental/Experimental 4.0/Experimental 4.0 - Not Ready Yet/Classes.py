@@ -60,6 +60,8 @@ class player(pygame.sprite.Sprite): #Defines player that you play
         self.CameraX = 0 #Sets the world camera position
         self.x = 42 #Used mainly for the hitbox
         self.y = 900
+        self.HBX = 840 # Hitbox is seperate than the image you see on the screen so it has its own position cordinates x = HBX y = HBY
+        self.HBY = self.y
         self.Jump = True # Defines if you can jump so you can't jump infinitely
         self.Jumping = False # Defines so that the gravity dosn't pull you down
         self.JumpHeight = 5
@@ -71,7 +73,7 @@ class player(pygame.sprite.Sprite): #Defines player that you play
         if Approval_SpecialDraw == True:
             self.CameraPosX = 42
         else:
-            self.CameraPosX = 840 # Where on x line you spawn
+            self.CameraPosX = self.HBX # Where on x line you spawn
         self.Orientation = "right" # Where the player looks at
         self.Life = 3
         self.ScoreY = 0
@@ -106,30 +108,33 @@ class player(pygame.sprite.Sprite): #Defines player that you play
                 self.Moving = False
                 self.Jumping = False
         if key[pygame.K_d]: # This moves player right
-            if self.CameraX > -self.Speed and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
-                self.CameraX -= 1
+            if self.MoveX > -self.Speed and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
+                self.MoveX -= 1
                 self.Orientation = "right"
             self.Moving = False
             self.Zaporedje += 1
         elif key[pygame.K_a]: # This moves player left
-            if self.CameraX < self.Speed and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
-                self.CameraX += 1
+            if self.MoveX < self.Speed and Py.CollHappened == False or CanSpeed == True and Py.CollHappened == False:
+                self.MoveX += 1
                 self.Orientation = "left"
             self.Moving = False
             self.Zaporedje -= 1
         else: # All this is for slowly stopping
-            if self.CameraX > self.Speed+1.5:
-                self.CameraX = self.Speed
-            if self.CameraX < -self.Speed-0.5:
-                self.CameraX = -self.Speed
-            if self.CameraX > -0.1 and self.MoveX < 0.1 or Py.CollHappened == True:
-                self.PrevX = self.CameraX
-                self.CameraX = 0
-            elif self.CameraX > 0:
-                self.CameraX -= 0.1
-            elif self.CameraX <= 0:
-                self.CameraX += 0.1
+            if self.MoveX > self.Speed+1.5:
+                self.MoveX = self.Speed
+            if self.MoveX < -self.Speed-0.5:
+                self.MoveX = -self.Speed
+            if self.MoveX > -0.1 or self.MoveX < 0.1 or Py.CollHappened == True:
+                self.PrevX = self.HBX
+                self.MoveX = 0
+            elif self.MoveX > 0:
+                self.MoveX -= 0.1
+            elif self.MoveX < 0:
+                self.MoveX += 0.1
+        self.HBX -= self.MoveX
+        self.x = 840
         self.y += self.MoveY
+        self.HBY += self.MoveY
 
     def Status(self):
         print("Jumps: "+ str(self.VarJumps))
@@ -164,12 +169,12 @@ class player(pygame.sprite.Sprite): #Defines player that you play
         self.x = self.CameraPosX
 
     def HitBox(self, screen): # Hitboxes for player
-        self.certall = pygame.draw.rect(screen, black, [self.x, self.y, 25.44, 48])
-        self.certtop = pygame.draw.rect(screen, red, [self.x, self.y, 25.44, 3])
-        self.certLeft = pygame.draw.rect(screen, green, [self.x, self.y + 3, 3, 42])
-        self.certIn = pygame.draw.rect(screen, magenta, [self.x + 3, self.y + 3, 19.44, 42])
-        self.certRight = pygame.draw.rect(screen, green, [self.x + 22.44, self.y + 3, 3, 42])
-        self.certbottom = pygame.draw.rect(screen, blue, [self.x, self.y + 45, 25.44, 3])
+        self.certall = pygame.draw.rect(screen, black, [self.HBX, self.HBY, 25.44, 48])
+        self.certtop = pygame.draw.rect(screen, red, [self.HBX, self.HBY, 25.44, 3])
+        self.certLeft = pygame.draw.rect(screen, green, [self.HBX, self.HBY + 3, 3, 42])
+        self.certIn = pygame.draw.rect(screen, magenta, [self.HBX + 3, self.HBY + 3, 19.44, 42])
+        self.certRight = pygame.draw.rect(screen, green, [self.HBX + 22.44, self.HBY + 3, 3, 42])
+        self.certbottom = pygame.draw.rect(screen, blue, [self.HBX, self.HBY + 45, 25.44, 3])
         HitBoxes = [self.certall, self.certtop, self.certLeft, self.certIn]
         return HitBoxes
 

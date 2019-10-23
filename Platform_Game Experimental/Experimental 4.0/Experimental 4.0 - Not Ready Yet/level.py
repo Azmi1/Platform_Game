@@ -25,7 +25,7 @@ L.w = 0
 L.El = []
 
 
-def Draw_level(screen, El, StarL, P, EnemyGroup, Power_UpsGroup ,Camera): # Draws the level
+def Draw_level(screen, El, StarL, P, EnemyGroup, Power_UpsGroup, PosX): # Draws the level
     x = len(El)
     y = len(EnemyGroup)
     z = len(StarL)
@@ -44,9 +44,9 @@ def Draw_level(screen, El, StarL, P, EnemyGroup, Power_UpsGroup ,Camera): # Draw
             #pygame.display.update(StarL[i].rect)
     for i in range(0,x): # Draws the blocks
         if Cl.Special_Draw == False:
-            El[i].draw(screen, Camera)
+            El[i].draw(screen, PosX)
         elif Cl.Special_Draw == True:
-            El[i].Special_draw(screen)
+            El[i].Special_draw(screen, PosX)
         E.append(El[i].rect)
         #pygame.display.update(El[i].rect)
     if len(EnemyGroup) > 0: # Draws the enemies

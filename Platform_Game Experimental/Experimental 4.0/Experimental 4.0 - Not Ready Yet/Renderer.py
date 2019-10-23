@@ -60,17 +60,19 @@ R.Animation_number = 0
 Start_Animation = False
 pygame.display.set_icon(icon)
 pygame.display.set_caption('Platform game')
+ScreeX = 0
 
-def Build_screen(screen, PlayerGroup, RenderL, Character_Dead, Camera, Approval_SpecialDraw, FPS):#Renders the scene
+def Build_screen(screen, PlayerGroup, RenderL, Character_Dead, Approval_SpecialDraw, FPS):#Renders the scene
     R.EL = RenderL[0]
     StarL = RenderL[1]
     EnemyGroup = RenderL[2]
     Power_UpsGroup = RenderL[3]
+    R.ScreeX += PlayerGroup[0].MoveX
     screen.fill(white)
+    PlayerGroup[0].HitBox(screen)
     #screen.blit(R.Background,(0,0))
     pygame.display.get_caption()
-    Camera.getpos()
-    R.E = L.Draw_level(screen, R.El, StarL, PlayerGroup[0], EnemyGroup, Power_UpsGroup , Camera) # Draws level
+    R.E = L.Draw_level(screen, R.El, StarL, PlayerGroup[0], EnemyGroup, Power_UpsGroup, R.ScreeX) # Draws level
     x = len(R.E)
     y = len(EnemyGroup)
     print ("Število kvadratov v prvi listi:", x)

@@ -17,7 +17,8 @@ def Collision(screen, Ecert, E,i, P, RenderL): # Checks where the collision happ
     Him = E[i]
     Him.cert = E1cert
     if P.certIn.colliderect(Him.cert): # Checks if the collision happened with inner hitbox
-        P.y-=3
+        P.y -= 3
+        P.HBY -= 3
         F.write("Collision with inner block")
         F.write("\n")
         P.Moving = True
@@ -32,6 +33,7 @@ def Collision(screen, Ecert, E,i, P, RenderL): # Checks where the collision happ
             P.VarJumps = 0
             P.WLag = False
         P.CameraX = - 0.2
+        P.HBX -= 0.2
         F.write("Collision with left side")
         F.write("\n")
     elif P.certtop.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) or P.certbottom.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) or P.certtop.colliderect(Him.cert) and P.certRight.colliderect(Him.cert) and P.certbottom.colliderect(Him.cert) or P.certRight.colliderect(Him.cert): # Checks if the collision happened with right hitbox
@@ -40,6 +42,7 @@ def Collision(screen, Ecert, E,i, P, RenderL): # Checks where the collision happ
             P.VarJumps = 0
             P.WLag = False
         P.CameraX= + 0.2
+        P.HBX += 0.2
         F.write("Collision with right side")
         F.write("\n")
     elif P.certbottom.colliderect(Him.cert): # Checks if the collision happened with bottom hitbox
@@ -48,6 +51,7 @@ def Collision(screen, Ecert, E,i, P, RenderL): # Checks where the collision happ
             P.VarJumps = 0
             P.WLag = False
         P.y=Him.y-48
+        P.HBY = Him.y - 48
         P.MoveY = 0
         F.write("Collision with bottom side")
         F.write("\n")
@@ -92,7 +96,8 @@ def Collision_Power_Ups(P, It, PowerUpsGroup):
         It.Power_Up_Delivery(P, PowerUpsGroup)
 
 def Gravity(self): # The magic of gravity happens here
-    self.y +=3
+    self.y += 3
+    self.HBY += 3
 
 def Borders(self,screen): # Looks if the 
     if self.y > 1080:

@@ -43,7 +43,7 @@ Screen_DiffX = 0
 Screen_DiffY = 0
 Screen_Diff = []
 PG.FPS = []
-
+ScreenX = 0
 #Load all outside images
 image = pygame.image.load("images/player.png").convert_alpha()
 icon = pygame.image.load("images/player.ico").convert_alpha()
@@ -61,6 +61,10 @@ def Set_Up():
     PG.Screen_Diff.append(PG.Screen_DiffX)
     PG.Screen_Diff.append(PG.Screen_DiffY)
     main()
+
+def Get_Screen():
+    MoveX = PlayerGroup[0].MoveX
+    PG.ScreenX += MoveX
 
 #Main game loop
 def main(): 
@@ -91,6 +95,8 @@ def main():
             if LB.Power_UpsGroup != []:
                 for i in range(0, len(LB.Power_UpsGroup)):
                     LB.Power_UpsGroup[i].Hitbox(screen)
+        PG.ScreenX = PG.Get_Screen()
+        ScreenXY = [PG.ScreenX]
         if PG.PrviZagon == 0:
             PG.RenderL.append(R.El)
             PG.RenderL.append(StarL)
@@ -156,7 +162,7 @@ def main():
             PG.TFPS = 0
             FPS.append(PS)
             FPS.append(PS1)
-        R.Build_screen(screen, PG.PlayerGroup, RenderL, PG.Character_Dead, Camera, Approval_SpecialDraw, PG.FPS)  # Function that renders the scene
+        R.Build_screen(screen, PG.PlayerGroup, RenderL, PG.Character_Dead, Approval_SpecialDraw, PG.FPS)  # Function that renders the scene
         for event in pygame.event.get():
             if event.type == pygame.QUIT: #For ending the loop
                 PG.Close_Game()

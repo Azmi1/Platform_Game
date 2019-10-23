@@ -8,7 +8,7 @@ height = 980
 Approval_FPS =  True
 Gravity = True
 Approval_SpecialDraw = False # Doesn't work correctly
-Mode = "save" # There are two modes 'custom' and 'save'
+Mode = "custom" # There are two modes 'custom' and 'save'
 
 #Power-Ups:
     #Rarity:

@@ -54,17 +54,17 @@ class Block(pygame.sprite.Sprite): # Blocks
     def __init__(self):
         l=0
 
-    def create(self, screen, x, y, width, height, color,ImagePresent = 'False', Image = ''): # Displays Blocks
+    def create(self, x, y, width, height, color,ImagePresent = 'False', Image = ''): # Displays Blocks
         pygame.sprite.Sprite.__init__(self)
         self.y = y
         self.x = x
         self.width = width
         self.height = height
         self.image = Image
-        self.rect = pygame.draw.rect(screen, color, [self.x, self.y, width,height])
+        #self.rect = pygame.draw.rect(screen, color, [self.x, self.y, width,height])
+
         if ImagePresent == True: # If image is present it automaticly crops it and blit it over block
             screen.blit(self.image,(self.x, self.y),(0,0, self.width, self.height))
-        BGroup.add(self)
         return self.rect
 
 print("Second_Classes loaded")

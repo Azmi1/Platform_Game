@@ -59,5 +59,5 @@ def Draw_level(screen, El, StarL, P, EnemyGroup, Power_UpsGroup, PosX): # Draws 
     if g != 0:
         for j in range(0,g):
             Power_UpsGroup[j].Hitbox(screen)
-            Power_UpsGroup[j].Display(screen, Camera)
+            Power_UpsGroup[j].Display(screen, PosX)
     return E

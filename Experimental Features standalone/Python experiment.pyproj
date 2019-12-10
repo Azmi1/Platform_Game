@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ded94a53-4eac-4441-b30b-bc735a007279</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>New_Renderer.py</StartupFile>
+    <StartupFile>Destructable_Blocks.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

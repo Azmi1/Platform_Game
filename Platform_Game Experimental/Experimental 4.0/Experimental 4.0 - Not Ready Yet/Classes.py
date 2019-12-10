@@ -144,7 +144,7 @@ class player(pygame.sprite.Sprite): #Defines player that you play
         key = pygame.key.get_pressed()
         print("Kje je kamera na x osi: " + str(self.CameraPosX))
         if El[2].x >= -4 and self.CameraPosX <= 823 and Approval_SpecialDraw == True: # Controls the start of the game
-            Cl.Special_Draw = True
+            #Cl.Special_Draw = True
             if El[2].x > 0:
                 self.CameraPosX = self.CameraX + 42
             elif El[2].x <= 0 and self.CameraPosX <= 824 and self.CameraX < 0 and key[pygame.K_d]:
@@ -152,7 +152,7 @@ class player(pygame.sprite.Sprite): #Defines player that you play
             elif El[2].x <= 0 and self.CameraPosX <= 832 and self.CameraX > 0 and key[pygame.K_a] and El[2].x > -622.5 and self.CameraPosX >= 40:
                 self.CameraPosX += -4
         elif El[2].x <= - 622.5 or self.CameraPosX >= 824 or Approval_SpecialDraw == False: # Controls the rest the game
-            Cl.Special_Draw = False
+            #Cl.Special_Draw = False
             print("Navadno rise kot ponavadi")
             if El[2].x > 0 and Approval_SpecialDraw == True:
                 self.CameraPosX = self.CameraX + 42
@@ -294,7 +294,7 @@ class player_two(pygame.sprite.Sprite): #Defines player that you play
         screen.blit(PS,(10,20))
 
 
-Special_Draw = True
+Special_Draw = False
 black = [0, 0, 0]
 white = [255, 255, 255]
 red = [255, 0, 0]

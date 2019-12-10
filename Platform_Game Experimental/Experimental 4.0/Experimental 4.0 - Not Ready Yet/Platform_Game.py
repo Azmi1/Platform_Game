@@ -90,12 +90,12 @@ def main():
             Py.Borders(PlayerGroup[i], screen) # Used if players goes under screen
             PG.HitBox = PG.PlayerGroup[i].HitBox(screen)
         if PG.i == 1:
-            R.El, PG.i, StarL, L.EnemyGroup, LB.Power_UpsGroup = LB.Load_level_1(screen, OPS.Mode, P, Approval_SpecialDraw, PG.Screen_Diff)
+            R.El, PG.i, StarL, L.EnemyGroup, LB.Power_UpsGroup = LB.Load_level_1(screen, OPS.Mode, P, Approval_SpecialDraw, PG.Screen_Diff, R.ScreeX)
             print ("Level loading/creating")
             if LB.Power_UpsGroup != []:
                 for i in range(0, len(LB.Power_UpsGroup)):
                     LB.Power_UpsGroup[i].Hitbox(screen)
-        PG.ScreenX = PG.Get_Screen()
+        #PG.ScreenX = PG.Get_Screen()
         ScreenXY = [PG.ScreenX]
         if PG.PrviZagon == 0:
             PG.RenderL.append(R.El)

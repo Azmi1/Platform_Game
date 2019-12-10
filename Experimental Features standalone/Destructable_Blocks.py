@@ -83,7 +83,7 @@ class Blocklings(object):
 
 running = True
 
-Block_1 = Block(0, 0, 1000, 500, 100)
+Block_1 = Block(0, 0, 1000, 500, 10000)
 
 BlockList = [Block_1]
 Aiming = False

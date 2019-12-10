@@ -37,7 +37,7 @@ L.StarL = []
 L.Cant_Enemy = False
 L.T1 = time.clock()
 
-def Load_level_1(screen, choice, P, Approval_SpecialDraw, Screen_Diff): #Creates the level
+def Load_level_1(screen, choice, P, Approval_SpecialDraw, Screen_Diff, ScreeX): #Creates the level
    L.Screen_DiffX = Screen_Diff[0]
    L.Screen_DiffY = Screen_Diff[1]
    if choice == "normal":
@@ -54,16 +54,15 @@ def Load_level_1(screen, choice, P, Approval_SpecialDraw, Screen_Diff): #Creates
 
    elif choice == "custom":
         if L.w == 0:
-            Trump_Wall = level(0, 0-Screen_DiffX, 0-Screen_DiffY, 40, 1680, black, False, True, Block_Image)
-            Origin_Block = level(0, -1-Screen_DiffX, 0-Screen_DiffY, 1, 1, white, True)
-            L.Done = level(0, 1480-Screen_DiffX, 940-Screen_DiffY, 200, 40, green, True)
-            E1 = level(0, OPS.width/2, 948-Screen_DiffY, 100, 20, black, True)
+            Trump_Wall = level(screen, 0, 0-Screen_DiffX, 0-Screen_DiffY, 40, 1680, black, False, True, Block_Image)
+            Origin_Block = level(screen, 0, -1-Screen_DiffX, 0-Screen_DiffY, 1, 1, white, True)
+            L.Done = level(screen, 0, 1480-Screen_DiffX, 940-Screen_DiffY, 200, 40, green, True)
+            E1 = level(screen, 0, OPS.width/2, 948-Screen_DiffY, 100, 20, black, True)
             L.El.append(L.Done)
             L.El.append(E1)
             L.El.append(Origin_Block)
             L.El.append(Trump_Wall)
             L.w = 1
-            Done.cert = Done.draw(screen, P)
             #for i in range(0, random.randint(2,12)):
             #    print("Haga: ", i)
             #    L.Star[i]=SC.Points(screen)
@@ -92,7 +91,7 @@ def Load_level_1(screen, choice, P, Approval_SpecialDraw, Screen_Diff): #Creates
                 PrevX1 = L.x1
                 width = L.x1 - L.x
                 height = L.y1 - L.y
-                E[L.st] = level(PrevX1, L.x, L.y, width, height, black, True)
+                E[L.st] = level(screen, PrevX1, L.x-ScreeX, L.y, width, height, black, True)
                 L.El.append(E[L.st])
                 L.st +=1
                 L.j == 2
@@ -127,7 +126,7 @@ def Load_level_1(screen, choice, P, Approval_SpecialDraw, Screen_Diff): #Creates
         
 
 class level(SC.Block): # Blocks
-    def __init__(self, PrevX1, x, y, width, height, color, CanJumpReg, ImagePresent = 'False', Image = ''): # Puts everything needed for the class
+    def __init__(self, screen, PrevX1, x, y, width, height, color, CanJumpReg, ImagePresent = 'False', Image = ''): # Puts everything needed for the class
         self.x = x
         self.y = y
         self.PrevX1 = PrevX1
@@ -137,15 +136,21 @@ class level(SC.Block): # Blocks
         self.height = height
         self.color = color
         self.CanCanJumpReg = CanJumpReg
-    def draw(self,screen, PosX): # Draws the blocks
-        self.cert = self.create(screen, self.x, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
-        self.x += PosX
-        pygame.draw.rect(screen, black,[self.x, self.y, self.width, self.height])
-        self.x -= PosX
+        if ImagePresent == True: # If image is present it automaticly crops it and blit it over block
+            screen.blit(self.image,(self.x, self.y),(0,0, self.width, self.height))
+        self.rect = pygame.draw.rect(screen, black,[self.x, self.y, self.width, self.height])
+        #self.cert = self.create(self.x, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
+
+    def draw(self, screen, PosX):
+        pygame.draw.rect(screen, black,[self.x+PosX, self.y, self.width, self.height])
+        if self.imagePresent == True: # If image is present it automaticly crops it and blit it over block
+            screen.blit(self.image,(self.x+PosX, self.y),(0,0, self.width, self.height))
+
 
     def Special_draw(self,screen, PosX): # Draws the blocks in a special way... ;)
         self.cert = self.create(screen, self.x, self.y, self.width, self.height, self.color, self.imagePresent, self.image).normalize()
         pygame.draw.rect(screen, black,[self.x + PosX , self.y, self.width, self.height])
+
 class star(object): # Old point system
     def __init__(self, screen):
         self.x = random.randint(10,1670)

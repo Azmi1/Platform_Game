@@ -61,8 +61,11 @@ class Block(object):
     def Destroy_Blocklings(self, Bullet):
         for Blockling in self.BlocklingsList:
             if Bullet.cert.colliderect(Blockling.cert):
-                self.BlocklingsList.remove(Blockling)
-                Bullet.Life = True
+                if Bullet.ID == 0:
+                    Blockling.color=[random.randint(0,255),random.randint(0,255),random.randint(0,255)]
+                else:
+                    self.BlocklingsList.remove(Blockling)
+                    Bullet.Life = True
 
 
 class Blocklings(object):
@@ -72,7 +75,7 @@ class Blocklings(object):
         self.width = width
         self.height = height
         self.color = ColorList[DB.ColN]
-        DB.ColN += 1
+        #DB.ColN += 1
         if DB.ColN == 6:
             DB.ColN = 0
         self.cert = pygame.draw.rect(screen, self.color,[self.x,self.y, self.width, self.height])
@@ -97,6 +100,7 @@ y1 = 0
 LineOffset = 75
 OrientX = 0
 OrientY = 0
+ID = 1
 
 def Gun():
     DB.x, DB.y = pygame.mouse.get_pos()
@@ -136,16 +140,21 @@ def Release(screen):
     else:
         k = 0
     DB.Aiming = False
-    DB.BulletL[DB.BulletC] = Bullet(DB.angle, DB.OrientX, DB.OrientY, screen)
+    if DB.ID == 1:
+        DB.ID = 0
+    else:
+        DB.ID = 1
+    DB.BulletL[DB.BulletC] = Bullet(DB.angle, DB.OrientX, DB.OrientY, screen, ID)
     DB.BulletList.append(DB.BulletL[DB.BulletC])
     DB.BulletC += 1
 
 
 class Bullet(object):
-    def __init__(self, angle, OrientX, OrientY, screen):
+    def __init__(self, angle, OrientX, OrientY, screen, ID):
         self.x = DB.x
         self.y = DB.y
         self.n = DB.y
+        self.ID = ID
         self.Life = True
         self.speed = 10
         self.OrientX = OrientX

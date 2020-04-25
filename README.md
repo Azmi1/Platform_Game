@@ -1,3 +1,7 @@
+I stopped working on this game because of several points one of them because I was new to this and did a lot of mistakes. 
+I am still happy I started it and I learned so much from it. I hope I will be able to learn from other projects I make be them finnished or unfinnished.
+
+<STOPED WORKING ON IT>
 # Platform_Game
 It's the game I am working on written in python. Still work in progress!
 
